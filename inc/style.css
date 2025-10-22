@@ -1,0 +1,40 @@
+html,body,div,h1,p{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+}
+body{
+	font-size: 18px;
+	color: #333;
+	text-align: center;
+	background-color: #f2f2f2;
+	font-family: Arial, 'sans-serif';
+}
+.content{
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+ul#logos_list{
+	list-style: none;
+	text-align: center;
+	margin: 40px auto;
+	padding: 0;
+}
+ul#logos_list li{
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+}
+ul#logos_list li img{
+	max-width: 220px;
+	height: auto;
+}
+.footer{
+	color: #f2f2f2;
+	background-color: #26156c;
+}
+@media only screen and (min-width: 1024px){
+}

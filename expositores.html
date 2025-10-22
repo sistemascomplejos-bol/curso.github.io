@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CBSC</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <script>
+    function typeWriterEffect(elementId, message, speed) {
+      let index = 0;
+      let isDeleting = false; 
+      const element = document.getElementById(elementId);
+  
+      function typeWriter() {
+        if (!isDeleting && index < message.length) {
+          element.textContent += message.charAt(index);
+          index++;
+          setTimeout(typeWriter, speed);
+        } else if (isDeleting && index > 0) {
+          element.textContent = message.substring(0, index - 1);
+          index--;
+          setTimeout(typeWriter, speed / 2); 
+        } else if (!isDeleting && index === message.length) {
+          setTimeout(() => isDeleting = true, 1000);
+          setTimeout(typeWriter, speed);
+        } else if (isDeleting && index === 0) {
+          isDeleting = false;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      typeWriter();
+    }
+  
+    window.onload = function() {
+      typeWriterEffect("typing-expositor-sergio", "Recopilando información del expositor.", 100);
+      typeWriterEffect("typing-expositor-marcelo", "Recopilando información del expositor.", 100);
+      typeWriterEffect("typing-expositor-lucas", "Recopilando información del expositor.", 100);
+      typeWriterEffect("typing-expositor-sissi", "Recopilando información del expositor.", 100);
+      typeWriterEffect("typing-expositor-jimmy", "Recopilando información del expositor.", 100); // Añadido para Sissi
+    };
+  </script>
+  
+  
+
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <a href="index.html#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <!-- <li><a href="#about">About</a></li>-->
+          <li><a href="./enconstruccion.html">Afiche</a></li>
+          <li class="menu-active"><a href="./resumenes.html">Expositores</a></li>
+          <!----	<li><a href="index.html#schedule">Programa</a></li> -->
+          <li><a href="./resumenes.html">Resúmenes</a></li>
+          <li><a href="index.html#supporters">Auspiciadores</a></li>
+          <!-- <li><a href="#contact">Contact</a></li>-->
+          <!-- <li class="buy-tickets"><a href="https://forms.gle/CxXmbkWdrWaPfMjq8">Inscripci&oacute;n</a></li> -->
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="main-page">
+    <section class="container seccion">
+      <h1>Expositores</h1>
+    </section>
+
+<section id="gabriela" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 🇧🇷 Gabriela Conde Saavedra</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Grupo de Sistemas Complejos, Bolivia & Instituto Nacional de Pesquisas Espaciais, Brasil</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Gabriela Conde obtuvo su licenciatura en Física en 2007 en la Universidad Mayor de San Andrés (UMSA), Bolivia. En 2011, obtuvo su Maestría en Astronomía en el Observatório do Valongo/UFRJ-Brasil. Sus intereses se centran en la sincronización, el caos, los fractales y la cosmología observacional. Actualmente, es investigadora asociada en el Instituto de Investigaciones Físicas (IIF) del Departamento de Física de la UMSA y miembro del Grupo de Sistemas Complejos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 3 --> 
+<section id="frederic" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇪 Fr&eacute;d&eacute;ric Crevecoeur</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universit&eacute; Catholique de Louvain-la-Neuve, B&eacute;lgica</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Fr&eacute;d&eacute;ric Crevecoeur es investigador principal de Le Fonds de la Recherche Scientifique (FRS-FNRS) de B&eacute;lgica y Profesor en la Universit&eacute; Catholique de Louvain-la-Neuve (UCLouvain), donde está afiliado a la Escuela Politécnica de Lovaina. Realizó su doctorado en la Universidad Católica de Lovaina entre 2005 y 2010, seguido de un postdoctorado en el Centro de Estudios en Neurociencias de Queen's University en Kingston, Canadá, entre 2010 y 2014. Su investigación se centra en áreas como neurociencias, control motor, teoría del control y modelos probabilísticos, con especial énfasis en los mecanismos neuronales del control sensoriomotor en humanos. Imparte cursos relacionados con modelos matemáticos en neurociencias y control sensoriomotor en UCLouvain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Expositor 2 --> 
+<section id="mauro" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇷 Mauro Copelli</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidade Federal de Pernambuco, Brasil</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Mauro Copelli es Profesor Titular del Departamento de Física de la Universidad Federal de Pernambuco (UFPE), Brasil. Obtuvo su licenciatura en Física por la Universidad de São Paulo (1989-1992), su maestría en la misma institución (1993-1995), y su doctorado en Física por el Limburgs Universitair Centrum, actualmente Universidad de Hasselt, en Bélgica (1996-1999). Realizó posdoctorados en el Departamento de Química y Bioquímica de la Universidad de California, San Diego (2000), trabajando en osciladores paramétricos acoplados, y en la Universidad Federal Fluminense en Niterói, Brasil (2001-2002). Desde 2002 se desempeña en la UFPE, donde su investigación se centra en sistemas excitables, dinámica no lineal, mecánica estadística, fenómenos críticos en redes neuronales, transiciones de fase, neurociencia computacional y de sistemas. Su trabajo explora la aplicación de la mecánica estadística a la neurociencia, particularmente en sistemas excitables cerca de puntos críticos y el comportamiento colectivo de redes neuronales biológicas y electrónicas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 3 --> 
+<section id="pedro" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇷 Pedro Carelli</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidade Federal de Pernambuco, Brasil</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Pedro Carelli es Profesor Asociado de la Universidad Federal de Pernambuco (UFPE) y se graduó en Física por la Universidad de São Paulo (2003), donde también obtuvo su doctorado en Física (2008) especializándose en sistemas dinámicos y fenómenos no lineales en redes neurales biológicas. Realizó un posdoctorado en la Unité de Neurosciences, Information et Complexité del Centre National de la Recherche Scientifique (UNIC-CNRS) en Francia, donde trabajó con experimentos in vivo estudiando fenómenos complejos en la corteza visual primaria (V1) e integró el proyecto europeo FACETS (Fast Analog Computing with Emergent Transient States), una iniciativa interdisciplinaria entre neurociencias y computación neuromórfica. Su investigación abarca física, neurociencia y redes neurales, enfocándose principalmente en sistemas dinámicos, criticalidad, redes neurales biológicas, artificiales e híbridas, modelado de neuronas y redes neurales, interacción en tiempo real entre computadoras y redes neurales biológicas, sincronización de osciladores neurales y dinámica de interacción lateral en la corteza visual primaria, utilizando técnicas de electrofisiología intracelular y extracelular con matrices de electrodos. Desde 2020 se desempeña como Prorrector de Investigación e Innovación de la UFPE, fue coordinador del Colegio de Prorrectores de Investigación, Posgrado e Innovación de las Universidades Federales en 2024, y actualmente coordina el proyecto de implementación del Parque Tecnológico de la UFPE. </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 4 --> 
+<section id="sergio" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇷 Sergio Callejas</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidade Federal de Pernambuco, Brasil</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Sergio Callejas obtuvo su licenciatura en Física en la Universidad Mayor de San Andrés (UMSA) el 2022, donde se desempeñó como ayudante de cátedra en física básica y asistente de investigación en sistemas complejos. Su proyecto de grado se desarrolló en el área de circuitos caóticos, titulado "Comportamientos dinámicos en el circuito de Hartley". Actualmente es miembro del grupo de sistemas complejos en Bolivia y está cursando una maestría en la Universidade Federal de Pernambuco, Brasil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 5 --> 
+<section id="sissi" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Sissi Ana Miroslava Gryzbowski Gaínza</h1>
+        <footer class="blockquote-footer"><h4 class="autor">LINSCINA – Universidad Mayor de San Andrés, Bolivia</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Docente emérita de la Carrera de Psicología y Docente Investigadora del Laboratorio Interdisciplinario de Neurociencias, Sistemas Complejos e Inteligencia Natural y Artificial (LINSCINA).
+            Es Psicóloga Clínica con Doctorado en Provisión Nacional en Psicología Clínica y de la Comunidad otorgado por el Comité Ejecutivo Universidad Boliviana (CEUB). Su formación de posgrado incluye estudios en Psicología Clínica y de la Comunidad en el Hospital Universitario “Dr. José E. González” de la Universidad Autónoma de Nuevo León, México (1994-1997), y obtuvo su licenciatura en Psicología en la Universidad Católica Boliviana (1987-1992). Con una trayectoria profesional extensa, es Docente Titular Emérita en la Universidad Mayor de San Andrés (UMSA) desde 1997, donde actualmente coordina la Unidad de Posgrado de la Carrera de Psicología. Además, trabaja como psicoterapeuta en consulta privada y ha sido psicóloga en instituciones como la Caja Nacional de Salud y el Banco Solidario en Bolivia. También es docente de posgrado en varias universidades bolivianas, incluyendo la Universidad Mayor de San Andrés, Universidad Andina Simón Bolívar y Universidad Siglo XX. Ha organizado y coordinado cursos de posgrado pioneros en Bolivia, como la primera maestría en Psicoterapia de Grupo, Pareja y Familia con formación teórico-práctica y supervisada. Es autora y coautora de libros y artículos en el ámbito de la Psicología Clínica, además de ser miembro fundadora y ex presidenta de la Asociación Boliviana de Psicoterapia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Expositor 6 --> 
+<section id="sabrina" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇦🇷 Sabrina Camargo</h1>
+        <footer class="blockquote-footer"><h4 class="autor">CONICET, CEMSC3 & Universidad Nacional San Mart&iacute;n, Argentina</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Sabrina Camargo es Investigadora Asistente de CONICET (Consejo Nacional de Investigaciones Científicas y Técnicas) y Profesora Adjunta en el Centro de Estudios Multidisciplinarios en Sistemas Complejos y Ciencias del Cerebro (CEMSC3) de la Universidad Nacional de San Martín (UNSAM). Es física graduada de la Universidad Estadual de Maringá (1999-2003), con maestría (2003-2005) y doctorado (2005-2009) en Ciencias por la Universidad de São Paulo. Tiene experiencia en investigación en análisis de series de tiempo y sistemas dinámicos, con intereses en problemas de modelado epidemiológico y actividad cerebral. Este tipo de problemas plantea preguntas que solo pueden abordarse mediante un enfoque interdisciplinario. Los modelos teóricos puros no son suficientes y el análisis de datos es esencial para el desarrollo de estrategias y soluciones viables. Tiene experiencia y habilidades en la implementación de modelos matemáticos en diversos campos, reuniendo aspectos teóricos y numéricos de problemas aplicados. Tiene una sólida formación teórica en sistemas dinámicos, incluidos modelos deterministas y estocásticos, simulaciones numéricas y análisis de series temporales desde una perspectiva dinámica no lineal. Su investigación se especializa en física estadística y no lineal, sistemas dinámicos, análisis de series temporales y desarrollo de métricas de complejidad de la dinámica cerebral, con aplicaciones en modelado epidemiológico y actividad neuronal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Expositor 7 --> 
+<section id="javier" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Javier Velasco</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidad Técnica de Oruro, Bolivia</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 8 --> 
+<section id="pablo" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Pablo Ortega Perales</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidad Mayor de San Andrés, Bolivia</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 9 -->
+<section id="kevin" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Kevin Iglesias</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Ministerio de Eduación, Bolivia</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 10 --> 
+<section id="francisco" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇲🇽 Francisco Fernández De Miguel</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidad Nacional Aut&oacute;noma de M&eacute;xico, M&eacute;xico</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Francisco Fernández De Miguel es Investigador y Profesor de Neurociencias en el Instituto de Fisiología Celular de la Universidad Nacional Autónoma de México (UNAM). Estudió Biología en la ENEP Iztacala de la UNAM (1979-1982), obtuvo su maestría en Neurociencias en el CINVESTAV-IPN (1986) y su doctorado en Neurociencias en la misma institución (1989). De 1989 a 1992 realizó su posdoctorado como investigador en el Biocenter de la Universidad de Basel, Suiza. Ha sido profesor visitante en el Departamento de Anatomía y Genética de la Universidad de Oxford (2000) y en el Departamento de Neurobiología de la Escuela de Medicina de Stanford (2007-2009). Su investigación se centra en tres áreas principales: la comunicación extrasináptica y el mecanismo de exocitosis extrasináptica de serotonina y cómo afecta el funcionamiento del sistema nervioso, particularmente la liberación somática de serotonina que modula el estado de ánimo y funciones cerebrales fundamentales; la percepción visual del arte; y la educación científica. De 2003 a 2017 creó y dirigió los Laboratorios "Experimenta" para Educación Científica de la UNAM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expositor 11 --> 
+<section id="marcelo" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 🇧🇪 Marcelo Ramírez Ávila</h1>
+        <footer class="blockquote-footer"><h4 class="autor">IIF – LINSCINA – UMSA, Bolivia & naXys – UNamur, B&eacute;lgica</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Investigador del Centro de Sistemas Complejos de Namur, Bélgica. Docente-Investigador de la Universidad Mayor de San Andrés (UMSA, La Paz, Bolivia). Miembro activo del Grupo Boliviano de Sistemas Complejos y del Laboratorio Interdisciplinar de Neurociencia, Sistemas Complejos e Inteligencias Natural y Artificial (LINSCINA, UMSA). Licenciatura en Física (UMSA). Postgrado en radioprotección y seguridad nuclear en la Universidad de Buenos Aires. Máster en Física Teórica y Doctorado en la Universidad de Bruselas. Posdoctorado en la Universidad Humboldt de Berlín con el apoyo del DAAD. Investigador visitante en la Universidad Tecnológica de Lodz, Polonia; PIK-Potsdam, Alemania; Universidad de Bruselas, Bélgica; Universidad de la República, Uruguay; Universidad Federal de Rio Grande do Sul, Brasil; Instituto de Alta Investigación, Arica, Chile. Entre las distinciones más importantes; Premio Académico Van Buuren. Premio de la Academia de Ciencias del Tercer Mundo para Jóvenes Científicos. Premio UMSA a la mejor producción intelectual. Medalla al Mérito otorgada por el Parlamento de Bolivia. Jason Gallas Award (2024). Director de más de 20 tesis de licenciatura y maestría. Principales intereses de investigación: dinámica no lineal y sistemas complejos con énfasis en aplicaciones biológicas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section class="container seccion">
+      <h1>Moderadores</h1>
+    </section>
+
+<!-- Moderador 1 --> 
+<section id="franklin" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Franklin Ernesto Jurado</h1>
+        <footer class="blockquote-footer"><h4 class="autor">Universidad Técnica de Oruro</h4></footer>
+        <hr class="my-3 new1">
+        <p class="text-justify">Franklin Ernesto Jurado Mur es ingeniero electromecánico, egresado de la Facultad Nacional de Ingeniería de la Universidad Técnica de Oruro. Cuenta con más de 15 años de experiencia en el ámbito industrial, su experiencia profesional se centra en el sector de fabricación, y ha complementado su formación con diplomados y maestrías en áreas como Seguridad y Salud Ocupacional, Gestión Ambiental, Mantenimiento, Energías Renovables y Eficiencia Energética, así como en Investigación Científica. Actualmente, es docente en la carrera de Ingeniería Mecánica- Electromecánica y Mecatrónica de la Facultad Nacional de Ingeniería y cursa el doctorado en Ciencias de la Ingeniería en la UTO. Su interés se enfoca en la integración de inteligencia artificial para mejorar la eficiencia de los sistemas de manufactura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Moderador 1 --> 
+<section id="zui" class="container seccion">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-12"> <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+        <h1>🇧🇴 Zui Oporto Almaraz</h1>
+        <footer class="blockquote-footer"><h4 class="autor">IIF – Universidad Mayor de San Andrés</h4></footer>
+        <hr class="my-3 new1">
+        <p>Zui Oporto Almaraz, es docente investigador de la Carrera de Física, Universidad Mayor de San Andrés. Su investigación se desarrolla en las áreas de gravitación y teorías de campo. Actualmente es integrante activo del Grupo de Sistemas Complejos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+
+   <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 col-md-10 footer-info">
+            <img src="img/logo.png" alt="TheEvenet">
+            <p style="text-align: justify;">El Curso Boliviano de Sistemas Complejos es una actividad que viene
+              realizándose desde 2001 tocando diversidad de temas, entre los que se pueden resaltar: termodinámica y
+              mecánica estadística no aditiva, modelos de evolución biológica, mapas acoplados, comportamientos
+              sociales, neurociencia, láseres, aspectos computacionales en sistemas no lineales, simulación de
+              sistemas biológicos, billares, transiciones de fase, diferentes análisis de series temporales, sistemas
+              multiagentes, y leyes de escala.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>COMITÉ ORGANIZADOR</h4>
+            <ul style="text-align: justify;">
+              <li><i class="fa fa-angle-right"></i> <a
+                  href="http://www.fiumsa.edu.bo/iif/gsc/home.html" >Sistemas Complejos Bolivia</a></li>
+                  Aurelio Suxo, Boris L&oacute;pez, Daniel Calle, Daniel Polo, Diego Vega, Gabriela Conde, Javier Velazco, Jimmy Santamar&iacute;a, Jos&eacute; Mar&iacute;a Lino, Marcial Arequipa, Marcelo Ramirez, Marco P&eacute;rez, Paul Rodriguez,  Pablo Ortega, Ver&oacute;nica Subieta y Zui Oporto.
+                </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contáctanos</h4>
+            <p>
+              c. 27 Cota-Cota, Campus Universitario <br>
+              La Paz, Bolivia<br>
+              <br>
+              <!-- <strong>Phone:</strong> +1 5589 55488 55<br>-->
+              <strong>Email:</strong> sistemascomplejos@fiumsa.edu.bo<br>
+            </p>
+
+            <div class="social-links">
+              <!--  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>-->
+              <a href="https://www.facebook.com/sistemascomplejosbo/" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.instagram.com/sistemascomplejosbo/" class="instagram"><i class="fa fa-instagram"></i></a>
+              <!-- <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>-->
+              <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>-->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>2024</strong>. Complex Systems Group
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

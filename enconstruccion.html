@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CBSC</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    /* Estilos para la animación Godard */
+    .godard-text {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: #0988bf;
+      line-height: 1.4;
+      letter-spacing: 1px;
+      text-transform: none;
+      min-height: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 40px 20px;
+      border: 2px dashed #ffffff;
+      border-radius: 10px;
+      background-color: #000000;
+    }
+
+    .letter {
+      opacity: 0;
+      display: inline-block;
+      transform: scale(0.8);
+      transition: all 0.5s ease-out;
+    }
+
+    .letter.red {
+      color: #ff0000;
+    }
+
+    .letter.blue {
+      color: #0988bf;
+    }
+
+    .word {
+      display: inline-block;
+      margin: 0 10px 10px 0;
+    }
+
+    .word.red-word .letter {
+      color: #ff0000;
+    }
+
+    .word.blue-word .letter {
+      color: #0988bf;
+    }
+
+    .space {
+      width: 12px;
+      height: 1px;
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .godard-text {
+        font-size: 2rem;
+        letter-spacing: 0.5px;
+        padding: 30px 15px;
+      }
+      
+      .word {
+        margin: 0 6px 8px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .godard-text {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="index.html#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="index.html">Inicio</a></li>
+          <li><a href="./enconstruccion.html">Afiche</a></li>
+          <li><a href="index.html#speakers">Expositores</a></li>
+          <!-- <li><a href="index.html#schedule">Programa</a></li> -->
+          <li><a href="./resumenes.html">Resúmenes</a></li>
+          <li><a href="index.html#supporters">Organizadores</a></li>
+          <!-- <li class="buy-tickets"><a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeWncXA2rC2m1kne9pbVQ0lSEXNTTrY7IE4eBShEk7JI9C8Pw/viewform?usp=sf_link">Inscripción</a>
+          </li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="main-page">
+
+    <!--SECCCIÓN ABOUT--> 
+    <section class="container seccion">
+      <h1></h1>
+    </section>
+
+    <!--SECCIÓN ABSTRACT con animación Godard--> 
+    <section class="container-fluid seccion" id="full-screen-animation" style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #000000;">
+      <div class="godard-text" id="animated-text"></div>
+    </section> 
+
+  </main>
+
+   <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 col-md-10 footer-info">
+            <img src="img/logo.png" alt="TheEvenet">
+            <p style="text-align: justify;">El Curso Boliviano de Sistemas Complejos es una actividad que viene
+              realizándose desde 2001 tocando diversidad de temas, entre los que se pueden resaltar: termodinámica y
+              mecánica estadística no aditiva, modelos de evolución biológica, mapas acoplados, comportamientos
+              sociales, neurociencia, láseres, aspectos computacionales en sistemas no lineales, simulación de
+              sistemas biológicos, billares, transiciones de fase, diferentes análisis de series temporales, sistemas
+              multiagentes, y leyes de escala.</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>COMITÉ ORGANIZADOR</h4>
+            <ul style="text-align: justify;">
+              <li><i class="fa fa-angle-right"></i> <a
+                  href="http://www.fiumsa.edu.bo/iif/gsc/home.html" >Sistemas Complejos Bolivia</a></li>
+                  Aurelio Suxo, Boris López, Daniel Calle, Daniel Polo, Diego Vega, Fernando Vera, Gabriela Condé, Javier Velazco, Jimmy Santamaría, José María Lino, Kevin Iglesias, Marcial Arequipa, Marcelo Ramirez, Marco Pérez, Pablo Ortega, Verónica Subieta, Zui Oporto.
+                </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contáctanos</h4>
+            <p>
+              c. 27 Cota-Cota, Campus Universitario <br>
+              La Paz, Bolivia<br>
+              <br>
+              <strong>Email:</strong> sistemascomplejos@fiumsa.edu.bo<br>
+            </p>
+
+            <div class="social-links">
+              <a href="https://www.facebook.com/sistemascomplejosbo/" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.instagram.com/sistemascomplejosbo/" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>2024</strong>. Complex Systems Group
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+  <!-- Script de animación -->
+  <script>
+    const message = "PAGINA WEB EN CONSTRUCCION - WORK IN PROCESS";
+    const textElement = document.getElementById('animated-text');
+    const words = message.split(' ');
+    
+    // Crear estructura de palabras y letras
+    function createTextStructure() {
+        words.forEach((word, wordIndex) => {
+            const wordSpan = document.createElement('span');
+            wordSpan.className = 'word';
+            
+            // Asignar colores específicos: primeras 4 palabras azul, guión blanco, últimas 3 palabras rojo
+            if (wordIndex <= 3) {  // PAGINA WEB EN CONSTRUCCION
+                wordSpan.classList.add('blue-word');
+            } else if (word === '-') {  // El guión
+                wordSpan.style.color = '#ffffff';
+            } else {  // WORK IN PROCESS
+                wordSpan.classList.add('red-word');
+            }
+            
+            // Crear letras individuales para cada palabra
+            for (let i = 0; i < word.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter';
+                letterSpan.textContent = word[i];
+                letterSpan.setAttribute('data-char', word[i].toLowerCase());
+                
+                wordSpan.appendChild(letterSpan);
+            }
+            
+            textElement.appendChild(wordSpan);
+            
+            // Agregar espacio entre palabras (excepto la última)
+            if (wordIndex < words.length - 1) {
+                const space = document.createElement('span');
+                space.className = 'space';
+                textElement.appendChild(space);
+            }
+        });
+    }
+
+    // Animar letras por orden alfabético (como en Pierrot le Fou)
+    function animateByAlphabet() {
+        const alphabet = 'abcdefghijklmnñopqrstuvwxyz-áéíóú';
+        let currentAlphabetIndex = 0;
+        
+        function showNextLetter() {
+            if (currentAlphabetIndex < alphabet.length) {
+                const currentChar = alphabet[currentAlphabetIndex];
+                
+                // Encontrar todas las letras que coinciden con el carácter actual
+                const letters = document.querySelectorAll(`[data-char="${currentChar}"]`);
+                
+                if (letters.length > 0) {
+                    // Mostrar todas las instancias de esta letra AL MISMO TIEMPO
+                    letters.forEach((letter) => {
+                        letter.style.opacity = '1';
+                        letter.style.transform = 'scale(1)';
+                    });
+                    
+                    // Pasar a la siguiente letra después de una pausa fija
+                    setTimeout(() => {
+                        currentAlphabetIndex++;
+                        showNextLetter();
+                    }, 500);
+                } else {
+                    // Si no hay letras de este tipo, pasar inmediatamente a la siguiente
+                    currentAlphabetIndex++;
+                    setTimeout(showNextLetter, 100);
+                }
+            } else {
+                // Terminar la animación (NO reiniciar)
+                console.log('Animación completada');
+            }
+        }
+        
+        showNextLetter();
+    }
+
+    // Iniciar cuando se carga la página
+    window.addEventListener('load', () => {
+        createTextStructure();
+        setTimeout(animateByAlphabet, 500);
+    });
+  </script>
+</body>
+
+</html>

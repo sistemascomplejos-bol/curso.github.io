@@ -1,0 +1,43 @@
+UMSA		2:0.992
+FCPN		2:2.465
+FCPN_01		2:2
+FIS		2:2.958
+FIS_06		2:1.552
+UTO		2:2
+FNI		2:1.703
+FNI_FIS		2:3.131
+
+
+IIF		2:1.590
+IIMAT		2:2.012
+PMS_04		2:4.707
+PMS_01		2:2.145
+SOBOFI		2:2
+GSC_02		2:3.192
+
+AFICHE, MARCELO
+
+1. Horario: 15:00 -- 18:00
+2. Revisar nombres
+3. Tiago, primero
+4. Orden alfabetico, apellido
+
+Pablo Balenzuela
+Edson Denis Leonel
+Thomas Dittrich
+Stamatios C. Nicolis
+Tiago Pereira
+Lucas Blitz Lozada Gobilard
+
+
+La charla sería Sociofisica en el Grupo de Sistemas Complejos
+Verónica Subieta
+
+
+http://gruposistemascomplejos.com/
+
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=poster_SMALL.pdf texposter_horizontal.pdf
+
+
+pdftoppm texposter_horizontal.pdf poster-2023 -png -rx 300 -ry 300

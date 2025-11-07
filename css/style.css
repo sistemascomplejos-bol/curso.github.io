@@ -2056,3 +2056,33 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding: 10px 5px;
   }
 }
+
+/* Hacer el botón más llamativo */
+#mobile-nav-toggle {
+  background: #22f86d;
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 8px;
+  animation: pulse 2s infinite;
+}
+
+#mobile-nav-toggle::after {
+  content: "MENÚ";
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 8px;
+  color: #000;
+}
+
+#mobile-nav-toggle i {
+  color: #000;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 248, 109, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(34, 248, 109, 0);
+  }
+}

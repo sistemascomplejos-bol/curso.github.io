@@ -2066,13 +2066,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   animation: pulse 2s infinite;
 }
 
-#mobile-nav-toggle::after {
-  content: "MENÚ";
-  font-size: 14px;
-  font-weight: 700;
-  margin-left: 8px;
-  color: #000;
-}
 
 #mobile-nav-toggle i {
   color: #000;

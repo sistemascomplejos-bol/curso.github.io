@@ -9,7 +9,7 @@
   <meta content="" name="description">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,79 +21,10 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
-  <style>
-    .poster-container {
-      margin-bottom: 60px;
-    }
-
-    .poster-card {
-      background: #303030;
-      border: 2px solid #48d67a;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 40px;
-      transition: all 0.3s ease;
-    }
-
-    .poster-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(72, 214, 122, 0.3);
-      border-color: #22f86d;
-    }
-
-    .poster-image {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .poster-image:hover {
-      transform: scale(1.02);
-    }
-
-    .poster-year {
-      color: #48d67a;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .poster-title {
-      color: #ffffff;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .download-btn {
-      background: #22f86d;
-      color: #000;
-      padding: 10px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-      font-weight: 600;
-    }
-
-    .download-btn:hover {
-      background: #48d67a;
-      color: #000;
-      text-decoration: none;
-      transform: scale(1.05);
-    }
-
-    .btn-container {
-      text-align: center;
-    }
-  </style>
+  <!-- Estilos consolidados en css/style.css -->
 </head>
 
-<body>
+<body id="page-historia">
 
   <!--==========================
     Header
@@ -103,36 +34,36 @@
       <div id="logo" class="pull-left">
         <a href="index.html#intro" class="scrollto"><img src="img/logo.png" alt="" title=""></a>
       </div>
-
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="./afiche.html">Afiche</a></li>
+          <li><a href="./resumenes.html">Programa y Resúmenes</a></li>
           <li><a href="./expositores.html">Expositores</a></li>
-          <li><a href="index.html#schedule">Programa</a></li>
-          <li><a href="./resumenes.html">Resúmenes</a></li>
-          <li><a href="index.html#supporters">Auspiciadores</a></li>
-          <li class="menu-active"><a href="./antecedentes.html">Historia</a></li>
-          <li class="buy-tickets"><a href="https://forms.gle/Z9Aknqj3psbgpDZV6">Inscripción</a></li>
+          <li class="menu-active"><a href="./historia.html">Historia</a></li>
+          <!-- <li class="buy-tickets"><a href="https://forms.gle/Z9Aknqj3psbgpDZV6">Inscripci&oacute;n</a></li>-->
         </ul>
       </nav>
+<button type="button" id="navToggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu-container">
+        <span></span><span></span><span></span>
+      </button>
+
     </div>
-  </header>
+    </header>
+    <!-- #header -->
 
-  <main id="main" class="main-page">
+    <main id="main" class="main-page">
+      <!--SECCIÓN ABOUT-->
 
-    <!-- Título Principal -->
+      <section class="section-with-bg" id="schedule">
+<div class="container wow fadeInUp">
+<div class="section-header">
+<h2>Historia y Antecedentes</h2>
+</div>
+
     <section class="container seccion">
-      <h1>Historia y Antecedentes del Curso Boliviano de Sistemas Complejos</h1>
+      <h1></h1>
       <p style="text-align: justify; color: #ffffff; margin-top: 30px;">
-        Desde 2001, el Curso Boliviano de Sistemas Complejos se ha consolidado como un evento anual de referencia 
-        en el estudio de la dinámica no lineal y los sistemas complejos. A lo largo de sus ediciones, ha abordado 
-        una amplia diversidad de temas interdisciplinarios, desde fundamentos matemáticos y físicos hasta aplicaciones 
-        en neurociencia, biología, ciencias sociales y computación. Los primeros cursos fueron organizados en colaboración
-		con la SOBOFI (Sociedad Boliviana de Física), pero con el tiempo el evento se independizó. Actualmente, las últimas
-		ediciones son organizadas por el Grupo de Sistemas Complejos, que también ha sido responsable del evento XVI Latin 
-		American Workshop on Nonlinear Phenomena. A continuación presentamos las páginas web, pósters e información de las
-		ediciones anteriores.
+        Desde 2001, el Curso Boliviano de Sistemas Complejos se ha consolidado como un evento anual de referencia en el estudio de la dinámica no lineal y los sistemas complejos. A lo largo de sus ediciones, ha abordado una amplia diversidad de temas interdisciplinarios, desde fundamentos matemáticos y físicos hasta aplicaciones en neurociencia, biología, ciencias sociales y computación. Los primeros cursos fueron organizados en colaboración con la SOBOFI (Sociedad Boliviana de Física), pero con el tiempo el evento se independizó. Actualmente, las últimas ediciones son organizadas por el Grupo de Sistemas Complejos, que también ha sido responsable del evento XVI Latin American Workshop on Nonlinear Phenomena. A continuación, se presenta información de ediciones anteriores como pósters, páginas web, expositores, etc.
       </p>
     </section>
 
@@ -227,19 +158,14 @@
             <div class="poster-year">XVI LAWNP</div>
             <div class="poster-title">XVI LATIN AMERICAN WORKSHOP ON NONLINEAR PHENOMENA - La Paz - 2019</div>
 			  <div style="text-align: center; margin-bottom: 20px;">
-                <a href="http://200.7.160.189/lawnp2019/index.html" target="_blank" style="color: 
-#007bff; text-decoration: none; font-size: 16px;">
+                <a href="antecedentes/LAWNP/LAWNP info.pdf" target="_blank" style="color: #007bff; text-decoration: none; font-size: 16px;">
                       🔗 Más información aquí
                 </a>
-              </div>
             <a href="antecedentes/LAWNP/LWNP 1.jpg" data-gall="posterGallery" class="venobox">
               <img src="antecedentes/LAWNP/LWNP 1.jpg" alt="XVI LAWNP" class="poster-image">
             </a>
             <a href="antecedentes/LAWNP/LWNP 2.png" data-gall="posterGallery" class="venobox">
               <img src="antecedentes/LAWNP/LWNP 2.png" alt="XVI LAWNP Auspiciadores" class="poster-image">
-            </a>
-            <div style="margin-top: 20px;">
-        <iframe src="antecedentes/LAWNP/LAWNP info.pdf" style="width:100%; height:800px; border:none;" title="XVI LAWNP Información"></iframe>
               </div>
           </div>
         </div>
@@ -561,22 +487,7 @@ La Paz, Bolivia<br />
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
 
-</body>
+    <script src="nav-toggle.js"></script>
+  </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

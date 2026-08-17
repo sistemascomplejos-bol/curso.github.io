@@ -1,38 +1,131 @@
-
 /*
   Theme Name: TheEvent
   Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
   Author: BootstrapMade.com
   License: https://bootstrapmade.com/license/
 */
+/*--------------------------------------------------------------
+# Tokens de diseño — CBSC XXIV
+# Identidad: dos polos (coral / cian) que conviven en fondo oscuro,
+# como referencia directa al tema 2026 "dinámicas de opinión en un
+# entorno polarizado". Se usan como acento y como línea-firma en
+# divisores, pestañas activas y bordes de tarjetas.
+--------------------------------------------------------------*/
+:root {
+  --bg: #060b31;
+  --bg-soft: #760000;
+  --surface: #1f2432;
+  --surface-2: #000000;
+  --border: #ffffff;
+  --ink: #ffffff;
+  --ink-muted: #d7dbe8;
+  --pole-a: #00f7ff; /* coral, más vivo */
+  --pole-b: #ffffff; /* cian, más vivo */
+  --pole-a-soft: rgba(255, 95, 122, 0.22);
+  --pole-b-soft: rgba(41, 224, 209, 0.22);
+  --gradient-pole: linear-gradient(90deg, var(--pole-a), var(--pole-b));
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+  --font-mono: font-family: "Open Sans", sans-serif;
+  --nav-toggle-color: var(
+    --ink
+  ); /* color de las 3 líneas del menú hamburguesa */
+}
+
+/*================================================================
+  PANEL DE PERSONALIZACIÓN — edita solo esta sección
+  No hace falta tocar el resto del archivo.
+================================================================
+
+  1) COLOR DE UNA PÁGINA COMPLETA
+     Cada página tiene un id distinto en su <body>:
+       index.html        -> body#page-inicio
+       resumenes.html     -> body#page-resumenes
+       expositores.html   -> body#page-expositores
+       historia.html      -> body#page-historia
+
+     Dentro de cada bloque de abajo puedes escribir cualquiera de
+     estas variables (son las mismas del bloque :root de arriba)
+     para cambiar SOLO esa página:
+       --bg            fondo general de la página
+       --section-bg    fondo de las franjas "Auspiciadores /
+                       Programa / Expositores / Historia"
+       --pole-a        color de acento 1 (coral)
+       --pole-b        color de acento 2 (cian)
+       --ink           blanco / texto fuerte
+       --ink-muted     gris claro / texto secundario
+
+     Ejemplo (descomenta y cambia el valor):
+       body#page-historia {
+         --section-bg: #241a06;
+         --pole-a: #ffb703;
+       }
+
+  2) COLOR DE LETRA DE UNA SECCIÓN EN PARTICULAR
+     Cada sección ya tiene su propio id o clase en el HTML.
+     Usa estas 5 variables sobre ese id/clase para cambiar
+     el color de su texto sin afectar el resto del sitio:
+       --heading-color   títulos (h1, h2, h3...)
+       --accent-color    subtítulos en mayúscula tipo mono (h4)
+       --text-color      párrafos
+       --text-muted      texto secundario/general
+       --link-color / --link-hover   enlaces
+
+     Ejemplo, texto del pie de página en tono cálido:
+       #footer {
+         --text-muted: #e8d9c3;
+         --heading-color: #fff3e0;
+       }
+
+     Secciones disponibles: #intro (portada), #supporters
+     (auspiciadores), #schedule (programa/horario), .seccion
+     (resúmenes y tarjetas de expositor), .poster-container
+     (historia), #footer (pie de página).
+================================================================*/
+
+body#page-inicio {
+  /* --pole-a: #ff5f7a; */
+}
+
+body#page-resumenes {
+  /* --pole-a: #ff5f7a; */
+}
+
+body#page-expositores {
+  /* --pole-a: #ff5f7a; */
+}
+
+body#page-historia {
+  /* --pole-a: #ff5f7a; */
+}
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
 body {
-  background: #090909;
-  color: #54a98a;
-  font-family: "Open Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text-muted, var(--ink-muted));
+  font-family: var(--font-body);
 }
 
 a {
-  color: #54dd99;
-  transition: 0.5s;
+  color: var(--link-color, var(--pole-b));
+  transition: 0.35s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #83c272;
+  color: var(--link-hover, var(--pole-a));
   outline: none;
   text-decoration: none;
 }
 
 p {
-  color: #ffffff;
+  color: var(--text-color, var(--ink));
   padding: 0;
-  margin: 0 0 30px 0;
+  margin: 0 0 24px 0;
+  line-height: 1.75;
 }
 
 h1,
@@ -40,58 +133,90 @@ h2,
 h3,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-weight: 600;
   margin: 0 0 20px 0;
   padding: 0;
-  color: #ffffff;
+  color: var(--heading-color, var(--ink));
+  letter-spacing: 0.2px;
 }
 
 h4 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
   margin: 0 0 20px 0;
   padding: 0;
-  color: #72cd7f;
+  color: var(--accent-color, var(--pole-b));
 }
 
-/* Cambia el color de fondo de todos los containers */
-
+/* Tarjetas de expositor */
 .jumbotron {
-  background-color: #2d2d2d; /* Cambia este color por el que prefieras */
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 30px;
+  transition: border-color 0.3s ease;
+}
+
+.jumbotron:hover {
+  border-color: var(--pole-b);
+}
+
+.jumbotron h1 {
+  font-size: 28px;
+}
+
+.jumbotron .new1 {
+  border-color: var(--border);
+  opacity: 1;
+  background: var(--gradient-pole);
+  height: 2px;
+  width: 60px;
+  margin-left: 0 !important;
 }
 
 .main-page {
   margin-top: 70px;
 }
 
+/* Antes: "visibility: hidden;" hasta que la librería externa WOW.js
+   (cargada desde js/main.js, un archivo que no forma parte de este
+   proyecto editable) la revelaba al hacer scroll. Si esa librería no
+   se ejecuta por cualquier motivo, el contenido queda invisible pero
+   sigue ocupando su espacio (el "hueco vacío" que se reportó). Para
+   que el contenido SIEMPRE se vea, ya no depende de ningún script:
+   se anima solo, una vez, con CSS puro al cargar la página. */
 .wow {
-  visibility: hidden;
+  animation: revealContent 0.6s ease-out both;
 }
 
+@keyframes revealContent {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-
-
-/* Prelaoder */
-
-#preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: #fff url("../img/preloader.svg") no-repeat center center;
+@media (prefers-reduced-motion: reduce) {
+  .wow {
+    animation: none;
+  }
 }
 
 /* Back to top button */
-
 .back-to-top {
   position: fixed;
   display: none;
-  background: #20ff8f;  
-  color: #fff;
+  background: var(--gradient-pole);
+  color: #0b0d13;
   width: 40px;
   height: 40px;
   text-align: center;
@@ -107,78 +232,87 @@ h4 {
 }
 
 .back-to-top:focus {
-  background:#c2ffd9 ;
-  color: #fff;
-  outline: none;
+  outline: 2px solid var(--pole-b);
+  outline-offset: 2px;
 }
 
 .back-to-top:hover {
-  background: #397f67;
-  color: #fff;
+  filter: brightness(1.1);
+  color: #0b0d13;
 }
 
 /* Sections Header
 --------------------------------*/
-
 .section-header {
   margin-bottom: 60px;
   position: relative;
-  padding-bottom:100px;
+  padding-bottom: 100px;
 }
 
 .section-header::before {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
-  width: 60px;
-  height: 5px;
-  background: #48d67a;
+  width: 80px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--gradient-pole);
   bottom: 0;
-  left: calc(50% - 25px);
+  left: calc(50% - 40px);
 }
 
 .section-header h2 {
-  font-size: 36px;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-style: italic;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 10px;
+  color: var(--ink);
 }
 
 .section-header p {
   text-align: center;
   padding: 0;
   margin: 0;
-  font-size: 18px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   font-weight: 500;
-  color: #9195a2;
+  color: var(--ink-muted);
 }
 
 .section-with-bg {
-  background-color: #090909;
+  background-color: var(--section-bg, var(--bg));
 }
 
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-
 #header {
   height: 90px;
-  padding: 25px 0;
+  padding: 10px 0;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  background: rgba(11, 13, 19, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
 }
 
+/* Mismo aspecto en todas las páginas: solo cambia la altura al
+   hacer scroll, nunca el color de fondo (antes esto causaba que
+   el header se viera distinto en index.html frente al resto). */
 #header.header-scrolled,
 #header.header-fixed {
-  background: #041918;
   height: 70px;
-  padding: 15px 0;
+  padding: 5px 0;
   transition: all 0.5s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 #header #logo h1 {
@@ -186,14 +320,14 @@ h4 {
   margin: 0;
   padding: 6px 0;
   line-height: 1;
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 #header #logo h1 span {
-  color: #22f88d;
+  color: var(--pole-b);
 }
 
 #header #logo h1 a,
@@ -208,282 +342,8 @@ h4 {
 }
 
 /*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-
-/* Nav Menu Essentials */
-
-.nav-menu,
-.nav-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.nav-menu ul {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0;
-  z-index: 99;
-}
-
-.nav-menu li {
-  position: relative;
-  white-space: nowrap;
-}
-
-.nav-menu > li {
-  float: left;
-}
-
-.nav-menu li:hover > ul,
-.nav-menu li.sfHover > ul {
-  display: block;
-}
-
-.nav-menu ul ul {
-  top: 0;
-  left: 100%;
-}
-
-.nav-menu ul li {
-  min-width: 180px;
-}
-
-/* Nav Menu Arrows */
-
-.sf-arrows .sf-with-ul {
-  padding-right: 30px;
-}
-
-.sf-arrows .sf-with-ul:after {
-  content: "\f107";
-  position: absolute;
-  right: 15px;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-}
-
-.sf-arrows ul .sf-with-ul:after {
-  content: "\f105";
-}
-
-/* Nav Meu Container */
-
-#nav-menu-container {
-  float: right;
-  margin: 0;
-}
-
-/* Nav Meu Styling */
-
-.nav-menu a {
-  padding: 8px;
-  text-decoration: none;
-  display: inline-block;
-  color: rgba(202, 206, 221, 0.8);
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  outline: none;
-}
-
-.nav-menu .menu-active a,
-.nav-menu a:hover {
-  color: #fff;
-}
-
-.nav-menu > li {
-  margin-left: 8px;
-}
-
-.nav-menu > li > a:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #22f86d;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-.nav-menu a:hover:before,
-.nav-menu li:hover > a:before,
-.nav-menu .menu-active > a:before {
-  visibility: visible;
-  width: 100%;
-}
-
-.nav-menu li.buy-tickets a {
-  color: #fff;
-  background: #22f86d65;
-  padding: 7px 22px;
-  border-radius: 50px;
-  border: 2px solid #22f86d;
-  transition: all ease-in-out 0.3s;
-  font-weight: 500;
-  margin-left: 8px;
-  margin-top: 2px;
-  line-height: 1;
-  font-size: 13px;
-}
-
-.nav-menu li.buy-tickets a:hover {
-  background: none;
-}
-
-.nav-menu li.buy-tickets:hover a:before,
-.nav-menu li.buy-tickets.menu-active a:before {
-  visibility: hidden;
-}
-
-.nav-menu ul {
-  margin: 4px 0 0 0;
-  padding: 10px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
-  background: #fff;
-  border-radius: 3px;
-}
-
-.nav-menu ul li {
-  transition: 0.3s;
-}
-
-.nav-menu ul li a {
-  padding: 10px;
-  color: #1b311d;
-  transition: 0.3s;
-  display: block;
-  font-size: 13px;
-  text-transform: none;
-  border-radius: 3px;
-}
-
-.nav-menu ul li:hover > a {
-  background: #22f86d;
-  color: #fff;
-}
-
-.nav-menu ul ul {
-  margin: 0;
-}
-
-/* Mobile Nav Toggle */
-
-#mobile-nav-toggle {
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 999;
-  margin: 15px 15px 0 0;
-  border: 0;
-  background: none;
-  font-size: 24px;
-  display: none;
-  transition: all 0.4s;
-  outline: none;
-  cursor: pointer;
-}
-
-#mobile-nav-toggle i {
-  color: #fff;
-}
-
-/* Mobile Nav Styling */
-
-#mobile-nav {
-  position: fixed;
-  top: 0;
-  padding-top: 18px;
-  bottom: 0;
-  z-index: 998;
-  background: rgba(6, 34, 6, 0.9);
-  left: -260px;
-  width: 260px;
-  overflow-y: auto;
-  transition: 0.4s;
-}
-
-#mobile-nav ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-#mobile-nav ul li {
-  position: relative;
-}
-
-#mobile-nav ul li a {
-  color: #fff;
-  font-size: 17px;
-  overflow: hidden;
-  padding: 10px 22px 10px 15px;
-  position: relative;
-  text-decoration: none;
-  width: 100%;
-  display: block;
-  outline: none;
-}
-
-#mobile-nav ul li a:hover {
-  color: #22f86d;
-}
-
-#mobile-nav ul li li {
-  padding-left: 30px;
-}
-
-#mobile-nav ul .menu-has-children i {
-  position: absolute;
-  right: 0;
-  z-index: 99;
-  padding: 15px;
-  cursor: pointer;
-  color: #fff;
-}
-
-#mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #22f86d;
-}
-
-#mobile-nav ul .menu-item-active {
-  color: #22f86d;
-}
-
-#mobile-body-overly {
-  width: 100%;
-  height: 100%;
-  z-index: 997;
-  top: 0;
-  left: 0;
-  position: fixed;
-  background: rgba(6, 12, 34, 0.8);
-  display: none;
-}
-
-/* Mobile Nav body classes */
-
-body.mobile-nav-active {
-  overflow: hidden;
-}
-
-body.mobile-nav-active #mobile-nav {
-  left: 0;
-}
-
-body.mobile-nav-active #mobile-nav-toggle {
-  color: #fff;
-}
-
-/*--------------------------------------------------------------
 # Intro Section
 --------------------------------------------------------------*/
-
 #intro {
   width: 100%;
   height: 110vh;
@@ -527,119 +387,67 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro h1 {
-  color: #fff;
-  font-family: "Raleway", sans-serif;
-  font-size: 42px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 52px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 #intro h1 span {
-  color: #ffffff;
+  color: var(--ink);
   font-size: 36px;
+}
 
+#intro .small-first-word {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--pole-b);
+  margin-top: 14px;
+}
+
+#intro .small-subtitle {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--ink-muted);
+  margin-top: 2px;
 }
 
 #intro p {
-  color: #ebebeb;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-#intro .play-btn {
-  width: 94px;
-  height: 94px;
-  background: radial-gradient(#62e0ee 50%, rgba(101, 111, 150, 0.15) 52%);
-  border-radius: 50%;
-  display: block;
-  position: relative;
-  overflow: hidden;
-}
-
-#intro .play-btn::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-40%) translateY(-50%);
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 100;
-  transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-#intro .play-btn:before {
-  content: '';
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-  -webkit-animation: pulsate-btn 2s;
-  animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
-  opacity: 1;
-  border-radius: 50%;
-  border: 2px solid rgba(163, 163, 163, 0.4);
-  top: -15%;
-  left: -15%;
-  background: rgba(198, 16, 0, 0);
-}
-
-#intro .play-btn:hover::after {
-  border-left: 15px solid #22f86d;
-  -webkit-transform: scale(20);
-  transform: scale(20);
-}
-
-#intro .play-btn:hover::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-40%) translateY(-50%);
-  transform: translateX(-40%) translateY(-50%);
-  width: 0;
-  height: 0;
-  border: none;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 200;
-  -webkit-animation: none;
-  animation: none;
-  border-radius: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 #intro .about-btn {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 32px;
   border-radius: 50px;
-  transition: 0.5s;
+  transition: 0.35s;
   line-height: 1;
   margin: 10px;
-  color: #fff;
+  color: var(--ink);
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  border: 2px solid #22f86d;
+  border: 2px solid var(--pole-b);
 }
 
 #intro .about-btn:hover {
-  background: #22f86d;
-  color: #000000;
+  background: var(--gradient-pole);
+  border-color: transparent;
+  color: #0b0d13;
 }
 
 @-webkit-keyframes pulsate-btn {
@@ -671,206 +479,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-
-#about {
-  background: url("../img/gallery/1.jpg");
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding: 60px 0 40px 0;
-}
-
-#about:before {
-  content: "";
-  background: rgba(65, 80, 36, 0.8);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#about h2 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#about h3 {
-  font-size: 22px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-#about p {
-  font-size: 17px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-/*--------------------------------------------------------------
-# Speakers Section
---------------------------------------------------------------*/
-
-#speakers {
-  padding: 60px 0px 40px 0px;
-}
-
-#speakers .speaker {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-
-
-
-#speakers .col-lg-2, #speakers .col-md-4, #speakers .col-sm-6 {
-  flex: 0 0 19%; /* Ajuste del ancho para darles más espacio */
-  max-width: 19%; /* Mantener el tamaño relativo */
-}
-
-
-#speakers .speaker img {
-  height: 100%; /* Adaptar la imagen al tamaño del contenedor */
-  width: 100%; /* Cubrir el espacio del cuadro */
-  border-radius: 0; /* Imagen sin borde */
-}
-#speakers .speaker {
-  display: flex;
-  flex-direction: column; /* Alinear la imagen y el nombre en columna */
-  align-items: center; /* Centrar los elementos */
-  justify-content: space-between; /* Espaciado uniforme */
-  height: auto; /* Ajustar la altura al contenido */
-  border-radius: 15px; /* Bordear las esquinas */
-}
-
-#speakers .details {
-  position: static; /* Eliminar el posicionamiento absoluto */
-  background: none; /* Quitar el fondo */
-  margin-top: 10px; /* Espacio entre la imagen y el nombre */
-}
-
-
-
-#speakers .speaker .details h3 {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-#speakers .speaker .details p {
-  color: #fff;
-  font-size: 15px;
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-#speakers .speaker .details .social {
-  height: 30px;
-}
-
-#speakers .speaker .details a {
-  color: #fff;
-}
-
-#speakers .speaker .details a:hover {
-  color: #48d67a;
-}
-
-#speakers .speaker:hover .details {
-  bottom: 0;
-}
-
-#speakers-details {
-  padding: 60px 0;
-}
-
-#speakers-details .details h2 {
-  color: #112363;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-#speakers-details .details .social {
-  margin-bottom: 10px;
-}
-
-#speakers-details .details .social a {
-  background: #e9edfb;
-  color: #112363;
-  line-height: 1;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  padding-top: 9px;
-}
-
-#speakers-details .details .social a:hover {
-  background: #48d67a;
-  color: #fff;
-}
-
-#speakers-details .details .social a i {
-  font-size: 18px;
-}
-
-#speakers-details .details p {
-  color: #116337;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-
-#speakers .speaker {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  transition: transform 0.3s ease-in-out;
-}
-
-#speakers .speaker img {
-  width: 100%;
-  height: auto;
-  max-width: 300px; /* Define un tamaño máximo para las imágenes */
-  aspect-ratio: 1 / 1; /* Mantiene las imágenes cuadradas */
-  object-fit: cover; /* Asegura que la imagen se ajuste bien en el contenedor */
-  transition: transform 0.3s ease-in-out;
-  border-radius: 10px; /* Da un ligero borde redondeado a las imágenes */
-}
-
-#speakers .speaker:hover img {
-  transform: scale(1.1); /* Agranda la imagen al pasar el mouse */
-  transition: 0.9s;
-}
-
-#speakers .details h3 {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  
-}
-
-#speakers .speaker:hover .details h3 {
-  color:  #48d67a;
-  transition: 0.9s;
-}
-
-
-/*--------------------------------------------------------------
 # Schedule Section
 --------------------------------------------------------------*/
-
 #schedule {
   padding: 60px 0 60px 0;
 }
@@ -893,595 +503,116 @@ body.mobile-nav-active #mobile-nav-toggle {
 #schedule .nav-tabs a {
   display: block;
   text-align: center;
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 50px;
-  font-weight: 600;
-  background-color: #0e4d32;
-  color: #fff;
-  padding: 10px 20px; /* Ajustar el padding para asegurar que el texto esté centrado */
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  background-color: var(--surface);
+  color: var(--ink-muted);
+  padding: 10px 20px;
   width: 100%;
+  transition: 0.3s;
 }
 
 #schedule .nav-tabs a.active {
-  background-color: #22f878;
-  color: #000000;
-}
-
-#schedule .sub-heading {
-  text-align: center;
-  font-size: 18px;
-  font-style: italic;
-  margin: 0 auto 30px auto;
+  background: var(--gradient-pole);
+  border-color: transparent;
+  color: #0b0d13;
+  font-weight: 700;
 }
 
 #schedule .tab-pane {
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 #schedule .schedule-item {
-  border-bottom: 1px solid #cad4f6;
+  border-bottom: 1px solid var(--border);
   padding-top: 15px;
   padding-bottom: 15px;
-  transition: background-color ease-in-out 0.3s;
+  padding-left: 14px;
+  border-left: 2px solid transparent;
+  transition:
+    background-color ease-in-out 0.3s,
+    border-left-color ease-in-out 0.3s;
 }
 
 #schedule .schedule-item:hover {
-  background-color: #454545;
+  background-color: var(--surface);
+  border-left-color: var(--pole-b);
 }
 
 #schedule .schedule-item time {
   padding-bottom: 5px;
   display: inline-block;
-}
-
-#schedule .schedule-item .speaker {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-#schedule .schedule-item .speaker img {
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-left: 50%;
-  transition: all ease-in-out 0.3s;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pole-a);
 }
 
 #schedule .schedule-item h4 {
-  font-size: 18px;
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 19px;
   font-weight: 600;
+  color: var(--ink);
   margin-bottom: 5px;
 }
 
 #schedule .schedule-item h4 span {
   font-style: italic;
-  color: #919191;
+  color: var(--ink-muted);
   font-weight: normal;
   font-size: 16px;
 }
 
 #schedule .schedule-item p {
   font-style: italic;
-  color: #919191;
+  color: var(--ink-muted);
   margin-bottom: 0;
 }
 
-
-/*--------------------------------------------------------------
-# Venue Section
---------------------------------------------------------------*/
-
-#venue {
-  padding: 60px 0;
+#schedule .day-panel {
+  margin-bottom: 40px;
 }
 
-#venue .container-fluid {
-  margin-bottom: 3px;
-}
-
-#venue .venue-map iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-}
-
-#venue .venue-info {
-  background: url("../img/venue-info-bg.jpg") top center no-repeat;
-  background-size: cover;
-  position: relative;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-#venue .venue-info:before {
-  content: "";
-  background: rgba(13, 20, 41, 0.8);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#venue .venue-info h3 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #fff;
-}
-
-#venue .venue-info p {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-#venue .venue-gallery-container {
-  padding-right: 12px;
-}
-
-#venue .venue-gallery {
-  overflow: hidden;
-  border-right: 3px solid #fff;
-  border-bottom: 3px solid #fff;
-}
-
-#venue .venue-gallery img {
-  transition: all ease-in-out 0.4s;
-}
-
-#venue .venue-gallery:hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-/*--------------------------------------------------------------
-# Hotels Section
---------------------------------------------------------------*/
-
-#hotels {
-  padding: 60px 0;
-}
-
-#hotels .hotel {
-  border: 1px solid #e0e5fa;
-  background: #fff;
-  margin-bottom: 30px;
-}
-
-#hotels .hotel:hover .hotel-img img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-#hotels .hotel-img {
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-#hotels .hotel-img img {
-  transition: 0.3s ease-in-out;
-}
-
-#hotels h3 {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 5px;
-  padding: 0 20px;
-}
-
-#hotels a {
-  color: #152b79;
-}
-
-#hotels a:hover {
-  color: #f82249;
-}
-
-#hotels .stars {
-  padding: 0 20px;
-  margin-bottom: 5px;
-}
-
-#hotels .stars i {
-  color: #ffc31d;
-}
-
-#hotels p {
-  padding: 0 20px;
-  margin-bottom: 20px;
-  color: #060c22;
-  font-style: italic;
+#schedule .day-panel-title {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--pole-b);
   font-size: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
 }
 
-/*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-
-#gallery {
-  padding: 20px;
-  overflow: hidden;
-}
-
-#gallery .owl-nav,
-#gallery .owl-dots {
-  margin-top: 10px;
-  text-align: center;
-}
-
-#gallery .owl-item {
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
-}
-
-#gallery .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: rgb(11, 9, 36);
-}
-
-#gallery .owl-dot.active {
-  background-color: #f82249;
-}
-
-#gallery .gallery-carousel .owl-stage-outer {
-  overflow: visible;
-}
-
-#gallery .gallery-carousel .center {
-  border: 3px solid #f82249;
-  margin: -15px;
-  box-sizing: content-box;
-  padding: 2px;
-  background: rgb(240, 240, 243);
-  z-index: 1;
+.resumenes-title-section {
+  padding-top: 80px;
 }
 
 /*--------------------------------------------------------------
 # supporters Section
 --------------------------------------------------------------*/
-
 #supporters {
   padding: 60px 0;
-}
-
-#supporters .supporters-wrap {
-  border-top: 1px solid #787878;
-  border-left: 1px solid #787878;
-  margin-bottom: 30px;
-}
-
-#supporters .supporter-logo {
-  padding: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-right: 2px solid #787878;
-  border-bottom: 2px solid #787878;
-  overflow: hidden;
-  background: rgba(47, 47, 47, 0.5);
-  height: 380px;
-}
-
-#supporters .supporter-logo:hover img {
-  -webkit-transform: scale(1.6);
-  transform: scale(1.2);
-}
-
-#supporters img {
-  transition: all 0.3s ease-in-out;
-}
-
-/*--------------------------------------------------------------
-# F.A.Q Section
---------------------------------------------------------------*/
-
-#faq {
-  padding: 60px 0;
-}
-
-#faq #faq-list {
-  padding: 0;
-  list-style: none;
-}
-
-#faq #faq-list li {
-  border-bottom: 1px solid #ddd;
-}
-
-#faq #faq-list a {
-  padding: 18px 0;
-  display: block;
-  position: relative;
-  font-family: "Raleway", sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-  padding-right: 20px;
-}
-
-#faq #faq-list i {
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  top: 16px;
-}
-
-#faq #faq-list p {
-  margin-bottom: 20px;
-}
-
-#faq #faq-list a.collapse {
-  color: #f82249;
-}
-
-#faq #faq-list a.collapsed {
-  color: #000;
-}
-
-#faq #faq-list a.collapsed i::before {
-  content: "\f055" !important;
-}
-
-/*--------------------------------------------------------------
-# Subscribe Section
---------------------------------------------------------------*/
-
-#subscribe {
-  padding: 60px;
-  background: url(../img/subscribe-bg.jpg) center center no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-}
-
-#subscribe:before {
-  content: "";
-  background: rgba(6, 12, 34, 0.6);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#subscribe .section-header h2,
-#subscribe p {
-  color: #fff;
-}
-
-#subscribe input {
-  background: #000000;
-  color: #06220d;
-  border: 0;
-  outline: none;
-  margin: 0;
-  padding: 9px 20px;
-  border-radius: 50px;
-  font-size: 14px;
-}
-
-#subscribe button {
-  border: 0;
-  padding: 9px 25px;
-  cursor: pointer;
-  background: #f82249;
-  color: #fff;
-  transition: all 0.3s ease;
-  outline: none;
-  font-size: 14px;
-  border-radius: 50px;
-}
-
-#subscribe button:hover {
-  background: #e0072f;
-}
-
-/*--------------------------------------------------------------
-# Buy Tickets Section
---------------------------------------------------------------*/
-
-#buy-tickets {
-  padding: 60px 0;
-}
-
-#buy-tickets .card {
-  border: none;
-  border-radius: 5px;
-  transition: all  0.3s ease-in-out;
-  box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
-}
-
-#buy-tickets .card:hover {
-  box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
-}
-
-#buy-tickets .card hr {
-  margin: 25px 0;
-}
-
-#buy-tickets .card .card-title {
-  margin: 10px 0;
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-#buy-tickets .card .card-price {
-  font-size: 48px;
-  margin: 0;
-}
-
-#buy-tickets .card ul li {
-  margin-bottom: 20px;
-}
-
-#buy-tickets .card .text-muted {
-  opacity: 0.7;
-}
-
-#buy-tickets .card .btn {
-  font-size: 15px;
-  border-radius: 50px;
-  padding: 10px 40px;
-  transition: all 0.2s;
-  background-color: #f82249;
-  border: 0;
-  color: #fff;
-}
-
-#buy-tickets .card .btn:hover {
-  background-color: #e0072f;
-}
-
-#buy-tickets #buy-ticket-modal input,
-#buy-tickets #buy-ticket-modal select {
-  border-radius: 0;
-}
-
-#buy-tickets #buy-ticket-modal .btn {
-  font-size: 15px;
-  border-radius: 50px;
-  padding: 10px 40px;
-  transition: all 0.2s;
-  background-color: #f82249;
-  border: 0;
-  color: #fff;
-}
-
-#buy-tickets #buy-ticket-modal .btn:hover {
-  background-color: #e0072f;
-}
-
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-
-#contact {
-  padding: 60px 0;
-}
-
-#contact .contact-info {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#contact .contact-info i {
-  font-size: 48px;
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #22f850;
-}
-
-#contact .contact-info address,
-#contact .contact-info p {
-  margin-bottom: 0;
-  color: #112363;
-}
-
-#contact .contact-info h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #112363;
-}
-
-#contact .contact-info a {
-  color: #4869df;
-}
-
-#contact .contact-info a:hover {
-  color: #1fff88;
-}
-
-#contact .contact-address,
-#contact .contact-phone,
-#contact .contact-email {
-  margin-bottom: 20px;
-}
-
-#contact .form #sendmessage {
-  color: #f82249;
-  border: 1px solid #f82249;
-  display: none;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-#contact .form #errormessage {
-  color: red;
-  display: none;
-  border: 1px solid red;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-#contact .form #sendmessage.show,
-#contact .form #errormessage.show,
-#contact .form .show {
-  display: block;
-}
-
-#contact .form .validation {
-  color: red;
-  display: none;
-  margin: 0 0 20px;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-#contact .form input,
-#contact .form textarea {
-  padding: 10px 14px;
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 15px;
-}
-
-#contact .form button[type="submit"] {
-  background: #46f822;
-  border: 0;
-  padding: 10px 40px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-#contact .form button[type="submit"]:hover {
-  background: #e0072f;
 }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-
 #footer {
-  background: #10221b;
+  background: var(--bg-soft);
   padding: 0 0 25px 0;
-  color: #eee;
+  color: var(--ink-muted);
   font-size: 14px;
+  border-top: 1px solid var(--border);
 }
 
 #footer .footer-top {
-  background: #041918;
+  background: var(--bg-soft);
   padding: 60px 0 30px 0;
 }
 
@@ -1494,9 +625,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 0 0 20px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
 }
 
 #footer .footer-top .footer-info img {
@@ -1508,15 +639,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
-  color: #fff;
+  font-family: var(--font-body);
+  color: var(--ink-muted);
 }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #222636;
-  color: #eee;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -1528,18 +660,24 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #22f86d;
-  color: #fff;
+  background: var(--gradient-pole);
+  border-color: transparent;
+  color: #0b0d13;
 }
 
 #footer .footer-top h4 {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
   text-transform: uppercase;
+  letter-spacing: 1.2px;
   position: relative;
   padding-bottom: 12px;
-  border-bottom: 2px solid #22f86d;
+  border-bottom: none;
+  background-image: var(--gradient-pole);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 32px 2px;
 }
 
 #footer .footer-top .footer-links {
@@ -1554,12 +692,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 5px;
-  color: #22f86d;
+  color: var(--pole-b);
   font-size: 18px;
 }
 
 #footer .footer-top .footer-links ul li {
-  border-bottom: 1px solid #264437;
+  border-bottom: 1px solid var(--border);
   padding: 10px 0;
 }
 
@@ -1572,7 +710,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #22f86d;
+  color: var(--pole-b);
 }
 
 #footer .footer-top .footer-contact {
@@ -1581,31 +719,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .footer-top .footer-contact p {
   line-height: 26px;
-}
-
-#footer .footer-top .footer-newsletter {
-  margin-bottom: 30px;
-}
-
-#footer .footer-top .footer-newsletter input[type="email"] {
-  border: 0;
-  padding: 6px 8px;
-  width: 65%;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #22f86d;
-  border: 0;
-  width: 35%;
-  padding: 6px 0;
-  text-align: center;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"]:hover {
-  background: #22f86d;
 }
 
 #footer .copyright {
@@ -1622,42 +735,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
-
-@media (min-width: 767px) {
-  #subscribe input {
-    min-width: 400px;
-  }
-}
-
-@media (min-width: 768px) {
-  #contact .contact-address,
-  #contact .contact-phone,
-  #contact .contact-email {
-    padding: 20px 0;
-  }
-
-  #contact .contact-phone {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-  }
-}
-
-@media (min-width: 991px) {
-  #schedule .sub-heading {
-    width: 75%;
-  }
-}
-
 @media (min-width: 1024px) {
   #intro {
-    background-attachment: fixed;
-  }
-
-  #about {
-    background-attachment: fixed;
-  }
-
-  #subscribe {
     background-attachment: fixed;
   }
 }
@@ -1666,28 +745,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   #header .container {
     max-width: 100%;
   }
-
-  .nav-menu a {
-    padding: 8px 4px;
-    display: none; 
-  }
-
 }
 
-@media (max-width: 991px) {
+@media (max-width: 900px) {
   #header {
-    background: #041918;
+    background: #10131c;
     height: 70px;
     padding: 15px 0;
     transition: all 0.5s;
-  }
-
-  #nav-menu-container {
-    display: none;
-  }
-
-  #mobile-nav-toggle {
-    display: inline;
   }
 
   #intro .intro-container {
@@ -1711,25 +776,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   .back-to-top {
     bottom: 15px;
   }
-
-  #faq #faq-list a {
-    font-size: 18px;
-  }
-
-  #faq #faq-list i {
-    top: 13px;
-  }
 }
 
 @media (max-width: 767px) {
   #schedule .nav-tabs a {
     padding: 8px 50px;
-  }
-}
-
-@media (max-width: 574px) {
-  #venue .venue-info h3 {
-    font-size: 24px;
   }
 }
 
@@ -1739,345 +790,605 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-@media (max-width: 460px) {
-  #subscribe button {
-    margin-top: 10px;
-  }
-}
-
-/* Ajustes para vista en dispositivos móviles */
-@media (max-width: 768px) {
-  #speakers .col-lg-2, #speakers .col-md-4, #speakers .col-sm-6 {
-    flex: 0 0 100%; /* Cada expositor ocupa el 100% del ancho */
-    max-width: 100%; /* Ajustar el ancho a 100% */
-  }
-
-  #speakers .speaker {
-    display: flex; /* Diseño en columna */
-    flex-direction: column; /* Alinear la imagen y el nombre verticalmente */
-    align-items: center; /* Centrar elementos en la columna */
-    height: auto; /* Altura ajustada al contenido */
-    margin: 20px 0; /* Espacio adicional entre cada expositor */
-  }
-
-  #speakers .speaker img {
-    width: 120px; /* Tamaño de la imagen para móviles */
-    height: 120px; /* Imagen cuadrada */
-    border-radius: 15px; /* Esquinas redondeadas */
-    margin-bottom: 10px; /* Espacio entre imagen y nombre */
-  }
-
-  #speakers .details {
-    text-align: center; /* Centrar el nombre debajo de la imagen */
-    margin: 0; /* Eliminar márgenes adicionales */
-  }
-
-  #speakers .details h3 {
-    font-size: 18px; /* Ajuste del tamaño del texto */
-    margin: 5px 0; /* Espaciado adicional */
-  }
-}
-
-
-/* Ajustes para vista en dispositivos móviles */
 /* Ajustes para vista en dispositivos móviles */
 @media (max-width: 768px) {
   #supporters {
     padding: 30px 0; /* Reduce el padding general */
   }
-
-  #supporters .supporters-wrap {
-    margin-bottom: 20px; /* Reduce el margen inferior */
-    border-top: none; /* Elimina bordes adicionales para simplificar el diseño */
-    border-left: none;
-  }
-
-  #supporters .supporter-logo {
-    padding: 10px; /* Reduce el padding del contenedor */
-    height: 150px; /* Reduce la altura del contenedor en móviles */
-    border-right: none; /* Quita bordes laterales */
-    border-bottom: 1px solid #787878; /* Añade solo borde inferior */
-  }
-
-  #supporters img {
-    max-width: 70%; /* Reduce el tamaño de la imagen dentro del contenedor */
-    max-height: 70%; /* Mantén la proporción de la imagen */
-  }
-}
-
-#full-screen-animation {
-  background-color: #000000; /* Fondo claro, puedes cambiarlo */
-}
-
-.text-animation h1 {
-  font-size: 3em; /* Tamaño grande para resaltar el mensaje */
-  font-weight: bold;
-  color: #333;
-  animation: fadeInOut 3s infinite;
-  text-align: center;
-  margin: 0;
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-
-/* Estilo del monitor */
-.monitor {
-  width: 80%;
-  height: 50%;
-  background-color: #000000;
-  border: 20px solid #000;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  position: relative;
-}
-
-.screen {
-  width: 100%;
-  height: 100%;
-  background-color: #535353;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px; /* Redondea las esquinas de la pantalla */
-}
-
-.screen p {
-  font-family: "Courier New", Courier, monospace; /* Fuente tipo máquina de escribir */
-  font-size: 1.5em;
-  color: rgb(89, 174, 140); /* Color verde como pantallas de terminal */
-  white-space: pre-wrap; /* Para respetar saltos de línea */
-  margin: 0;
-}
-
-#full-screen-animation {
-  border-radius: 25px; /* Redondea las esquinas del section */
-  overflow: hidden; /* Asegura que el contenido dentro también esté recortado en las esquinas */
-  padding: 20px;
-  background-color: #000000; /* Puedes cambiar este color según prefieras */
-}
-
-/* Estilo para el texto de recopilación de información del expositor */
-.expositor-info {
-  font-family: "Courier New", Courier, monospace; /* Fuente tipo máquina de escribir */
-  font-size: 1.5em;
-  color: #333;
-}
-
-#typing-expositor-sergio {
-  color: #8eef9057;
-  white-space: pre-wrap;
-}
-
-#typing-expositor-marcelo {
-  color: #8eef9057;
-  white-space: pre-wrap;
-}
-
-#typing-expositor-sissi {
-  color: #8eef9057;
-  white-space: pre-wrap;
-}
-
-#typing-expositor-lucas {
-  color: #8eef9057;
-  white-space: pre-wrap;
-}
-
-#typing-expositor-jimmy {
-  color: #8eef9057;
-  white-space: pre-wrap;
+/* Tamaños responsivos del título hero (usa las clases reales del markup,
+   pequeño-mayúscula mono arriba + subtítulo serif itálico abajo) */
+#intro h1 {
+  line-height: 1.15;
 }
 
 @media (max-width: 768px) {
   #intro h1 {
-    font-size: 32px; /* Tamaño reducido para h1 en pantallas medianas (tabletas) */
+    font-size: 30px;
   }
-  
-  #intro h1 span {
-    font-size: 24px; /* Tamaño reducido para span en pantallas medianas (tabletas) */
+
+  #intro .small-first-word {
+    font-size: 12px;
+  }
+
+  #intro .small-subtitle {
+    font-size: 17px;
   }
 }
 
 @media (max-width: 480px) {
   #intro h1 {
-    font-size: 24px; /* Tamaño reducido para h1 en móviles */
+    font-size: 24px;
   }
-  
-  #intro h1 span {
-    font-size: 18px; /* Tamaño reducido para span en móviles */
+
+  #intro .small-first-word {
+    font-size: 10.5px;
+    letter-spacing: 1.5px;
   }
-}
 
-#intro h1 {
-  line-height: 1.2; /* Reduce el espacio vertical entre las líneas del título */
-  
-}
-
-#intro h1 span:first-child {
-  font-size: 18px;
-  display: block;
-  margin-bottom: 5px; /* Ajusta el espacio entre el primer span y el subtítulo */
-}
-
-#intro h1 span:last-child {
-  font-size: 35px;
-  display: block;
-  text-transform: capitalize;
-  margin-top: 0; /* Elimina el espacio extra encima del subtítulo */
-}
-
-
-@media (max-width: 768px) {
-
-  #intro h1 span:last-child {
-    font-size: 12px; /* Aún más pequeño para el último span en móviles */
+  #intro .small-subtitle {
+    font-size: 15px;
   }
 }
-
 
 .abstract-block {
-  background-color: #303030; /* Fondo claro */
-  border: 1px solid #212121; /* Borde suave */
-  border-radius: 10px; /* Esquinas redondeadas */
-  padding: 20px; /* Espaciado interno */
-  margin-bottom: 20px; /* Espaciado entre bloques */
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--pole-b);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
 }
 
-
-  .speaker-link {
-    text-decoration: none;
-    color: ffffff; /* Color inicial del texto */
-    transition: color 0.3s; /* Suaviza el cambio de color */
-  }
-  .speaker-link:hover {
-    color: #54a98a<
-  }
-  
-  speaker-link {
-    text-decoration: none;
-    color: black; /* Color inicial del texto */
-    transition: color 0.3s; /* Suaviza el cambio de color */
-  }
-  .speaker-link:hover {
-    color: #54a98a; /* Color del texto al pasar el mouse */
-  }
-  .speaker-item {
-    padding-left: 20px; /* Ajusta el espacio desde la izquierda */
-    padding-right: 20px; /* Ajusta el espacio desde la derecha */
-  }
-
-  #supporters .supporter-logo {
-  padding: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid #787878;
-  border-bottom: 2px solid #787878;
-  overflow: hidden;
-  background: rgba(47, 47, 47, 0.5);
-  height: 380px;
-  position: relative; /* Importante para posicionar el nombre */
-  transition: all 0.4s ease;
-}
-
-#supporters .supporter-logo:hover {
-  background: rgba(76, 175, 80, 0.1);
-  border-color: #48d67a;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(72, 214, 122, 0.3);
-}
-
-#supporters .supporter-logo:hover img {
-  transform: scale(1.2);
-}
-
-#supporters img {
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 1;
-}
-
-/* Estilo para el nombre de la institución */
-.institution-name {
-  position: absolute;
-  bottom: -60px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: #fff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 15px 10px;
-  background: linear-gradient(to top, rgba(72, 214, 122, 0.95), transparent);
-  opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 2;
-  line-height: 1.3;
-}
-
-#supporters .supporter-logo:hover .institution-name {
-  bottom: 0;
-  opacity: 1;
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 768px) {
-  #supporters {
-    padding: 30px 0;
-  }
-
-  #supporters .supporters-wrap {
-    margin-bottom: 20px;
-    border-top: none;
-    border-left: none;
-  }
-
-  #supporters .supporter-logo {
-    padding: 20px;
-    height: 200px;
-    border-right: none;
-    border-bottom: 1px solid #787878;
-  }
-
-  #supporters img {
-    max-width: 80%;
-    max-height: 80%;
-  }
-
-  .institution-name {
-    font-size: 0.75rem;
-    padding: 10px 5px;
-  }
+.abstract-block .autor {
+  color: var(--pole-a);
 }
 
 /* Hacer el botón más llamativo */
-#mobile-nav-toggle {
-  background: #22f86d;
-  color: #000;
-  padding: 10px 15px;
-  border-radius: 8px;
-  animation: pulse 1s infinite;
-}
-
-#mobile-nav-toggle i {
-  color: #000;
-}
-
-#mobile-nav-toggle {
-  background: #00ff15;
-}
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px 0 rgba(94, 255, 0, 0.856);
+  0%,
+  100% {
+    box-shadow: 0 0 20px 0 var(--pole-b-soft);
   }
   50% {
-    box-shadow: 0 0 40px 20px rgba(0, 255, 153, 0);
+    box-shadow: 0 0 40px 16px rgba(45, 212, 200, 0);
   }
+}
+
+/*--------------------------------------------------------------
+# Sección Intro (index.html) — animación de fondo y contenedor
+--------------------------------------------------------------*/
+#intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(11, 13, 19, 0.45);
+  backdrop-filter: blur(6px);
+  padding: 28px 24px;
+  border-radius: 16px;
+}
+
+#header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+#header #logo img {
+  height: 40px;
+}
+
+/*--------------------------------------------------------------
+# Botón de menú (hamburguesa)
+# Estático, sin animaciones ni brillo. Para cambiar su color
+# solo edita --nav-toggle-color en :root (arriba del archivo).
+--------------------------------------------------------------*/
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--nav-toggle-color, var(--ink));
+  border-radius: 2px;
+}
+
+.nav-toggle:hover span {
+  background: var(--nav-toggle-color, var(--ink));
+  opacity: 0.85;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--pole-b);
+  outline-offset: 3px;
+}
+
+#nav-menu-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#nav-menu-container ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav-menu-container ul li {
+  display: inline-block;
+}
+
+#nav-menu-container ul li a {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+#nav-menu-container ul li a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+}
+
+#nav-menu-container ul li.menu-active a,
+#nav-menu-container ul li a:focus {
+  background: transparent;
+  text-decoration: none;
+}
+
+#nav-menu-container ul li a:link,
+#nav-menu-container ul li a:visited,
+#nav-menu-container ul li a:active,
+#nav-menu-container ul li a:focus {
+  text-decoration: none;
+  color: var(--ink-muted);
+}
+
+#nav-menu-container ul li a:hover,
+#nav-menu-container ul li.menu-active a {
+  color: var(--pole-b);
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/*--------------------------------------------------------------
+# Panal hexagonal de auspiciadores (index.html)
+--------------------------------------------------------------*/
+:root {
+  --hex-w: 300px;
+  --hex-h: calc(var(--hex-w) * 1.1547); /* Geometría exacta pointy-top */
+}
+
+.hex-honeycomb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0 50px;
+}
+
+.hex-row {
+  display: flex;
+  position: relative;
+  z-index: 0;
+}
+
+.hex-row:has(.hexagon:hover) {
+  z-index: 20;
+}
+
+.hex-row:not(:first-child) {
+  margin-top: calc(var(--hex-h) * -0.25);
+}
+
+.hex-row.hex-row-offset {
+  transform: translateX(calc(var(--hex-w) / 2));
+}
+
+.hexagon {
+  position: relative;
+  width: var(--hex-w);
+  height: var(--hex-h);
+  margin: 0 -1px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    box-shadow 0.25s ease;
+  background: var(
+    --surface-2
+  ); /* Marco visible: más claro que el fondo para que se note el contorno */
+}
+
+/* Relleno interno claro: deja un marco oscuro visible alrededor */
+.hexagon.hex-white::after {
+  content: "";
+  position: absolute;
+  inset: 6px; /* Grosor del borde alrededor del hexágono claro */
+  background: var(--ink);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 1;
+}
+
+.hexagon.hex-black {
+  background: var(--surface-2);
+}
+
+.hexagon:hover {
+  transform: scale(1.12);
+  z-index: 20;
+  filter: brightness(1.08);
+  box-shadow: 0 0 32px var(--pole-b-soft);
+}
+
+.hexagon a,
+.hexagon .hex-static {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 85%;
+  text-align: center;
+}
+
+.hexagon img {
+  max-width: 75%;
+  max-height: 55%;
+  object-fit: contain;
+}
+
+.hexagon .hex-name {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.hexagon.hex-black .hex-name {
+  color: var(--ink);
+}
+
+.hexagon.hex-white .hex-name {
+  color: var(--bg);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hex-w: 110px;
+  }
+
+  /* Se reduce el logo para dejarle más espacio vertical al nombre dentro
+     de la franja "segura" del hexágono (la zona central donde el
+     clip-path no recorta el contenido). */
+  .hexagon img {
+    max-height: 34%;
+  }
+
+  .hexagon .hex-name {
+    font-size: 7px;
+    line-height: 1.15;
+    margin-top: 2px;
+    max-width: 74%;
+    /* Máximo 2 líneas: si el nombre es más largo se corta con "…" en vez
+       de desbordarse fuera de la forma del hexágono (que antes cortaba
+       el texto a la mitad de una letra). */
+    max-height: calc(1.15em * 2);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+  }
+}
+
+/*--------------------------------------------------------------
+# Pósters (historia.html)
+--------------------------------------------------------------*/
+.poster-container {
+  margin-bottom: 60px;
+}
+
+.poster-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.poster-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-pole);
+}
+
+.poster-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+  border-color: var(--pole-b);
+}
+
+.poster-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.poster-image:hover {
+  transform: scale(1.02);
+}
+
+.poster-year {
+  font-family: var(--font-mono);
+  color: var(--pole-a);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.poster-title {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Menú móvil (colapsable) — se coloca al final a propósito, para
+# que gane sobre las reglas base de #nav-menu-container de arriba.
+--------------------------------------------------------------*/
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  #nav-menu-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    padding: 6px 20px 18px;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease;
+  }
+
+  #header.nav-open #nav-menu-container {
+    max-height: 60vh;
+    opacity: 1;
+    visibility: visible;
+    overflow-y: auto;
+  }
+
+  #nav-menu-container ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  #nav-menu-container ul li a {
+    display: block;
+    padding: 14px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* =========================================================
+   MENÚ: TEXTO BLANCO Y LÍNEA CELESTE ANIMADA
+   ========================================================= */
+
+.nav-menu a {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600 !important;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  color: #ffffff !important;
+  position: relative;
+  padding: 8px 12px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Línea celeste inferior */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 2.5px;
+  background-color: #00d2fe;
+  border-radius: 2px;
+  transition:
+    width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* HOVER: El texto se mantiene blanco, solo se despliega la línea celeste */
+.nav-menu a:hover {
+  color: #ffffff !important;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+  left: 0%;
+}
+
+/* ESTADO ACTIVO: Texto blanco con la línea celeste fija */
+.nav-menu .menu-active a,
+.nav-menu li.menu-active > a {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.nav-menu .menu-active a::after,
+.nav-menu li.menu-active > a::after {
+  width: 100%;
+  left: 0%;
+}
+
+/* =========================================================
+   MEJORA DE TIPOGRAFÍA Y CONTRASTE EN EL FOOTER (SECCIÓN ROJA)
+   ========================================================= */
+
+#footer {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #f1f5f9; /* Color claro con alto contraste sobre fondo rojo */
+}
+
+/* Títulos principales del footer (COMITÉ ORGANIZADOR, CONTÁCTANOS, ETC) */
+#footer .footer-top h4 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Texto de descripción (CBSC) y datos de contacto */
+#footer .footer-top .footer-info p,
+#footer .footer-top .footer-contact p {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ) !important; /* Blanco brillante con excelente nitidez */
+  font-weight: 400;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* Enlace a "Email" e información destacada */
+#footer .footer-top .footer-contact strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Lista del Comité Organizador */
+#footer .footer-top .footer-links ul li {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  line-height: 1.65;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Separadores más definidos */
+}
+
+/* Enlaces del comité */
+#footer .footer-top .footer-links ul a {
+  color: #00f7ff !important; /* Tono cian brillante para destacar sobre el rojo */
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(0, 247, 255, 0.8);
+}
+
+/* Copyright del final */
+#footer .copyright {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+#footer .copyright strong {
+  color: #ffffff;
+  font-weight: 700;
 }

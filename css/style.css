@@ -1440,41 +1440,56 @@ body {
 }
 
 /* =========================================================
-   ADAPTACIÓN RESPONSIVA DE AUSPICIADORES PARA MÓVILES
+   CORRECCIÓN DEFINITIVA DE SCROLL (SIN RECORTE IZQUIERDO)
    ========================================================= */
 
-@media (max-width: 768px) {
-  /* Ajuste del título "Auspiciadores" para evitar que se desborde */
-  .section-header h2,
-  #supporters .section-header h2 {
-    font-size: 26px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 10px !important;
-    box-sizing: border-box !important;
-    text-align: center !important;
-  }
-
-  /* Ajuste del contenedor general de la sección */
+@media (max-width: 991px) {
+  /* 1. Previene cortes en la sección general */
   #supporters,
-  .supporters-container,
-  .supporters-wrap {
+  .supporters-section {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 5px !important;
-    box-sizing: border-box !important;
     overflow: hidden !important;
+    padding-bottom: 20px !important;
   }
 
-  /* Escala la cuadrícula de hexágonos para que quepa completa en pantalla */
-  #supporters .row,
-  .hexagon-grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    transform: scale(0.85); /* Reduce el tamaño general */
-    transform-origin: top center;
-    margin: 0 auto !important;
+  /* 2. Activa el área de desplazamiento horizontal */
+  #supporters .container,
+  .supporters-container {
     width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
+
+  /* 3. Fuerza la alineación al inicio (left: 0) para ver desde el 1er hexágono */
+  #supporters .row,
+  #supporters .hexagon-grid,
+  .supporters-container .row {
+    display: inline-flex !important;
+    min-width: 680px !important;
+    width: 680px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: flex-start !important; /* Alinea al inicio para permitir scroll completo */
+    transform: none !important;
+    float: none !important;
+  }
+
+  /* 4. Estilizado de la barra de scroll */
+  #supporters .container::-webkit-scrollbar {
+    height: 6px;
+  }
+  #supporters .container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  #supporters .container::-webkit-scrollbar-thumb {
+    background: #00d2fe;
+    border-radius: 10px;
   }
 }

@@ -1392,3 +1392,49 @@ a:focus {
   color: #ffffff;
   font-weight: 700;
 }
+
+/* =========================================================
+   CORRECCIÓN DE DESBORDAMIENTO EN MÓVIL (INDEX.HTML)
+   ========================================================= */
+
+/* 1. Bloquear el desbordamiento horizontal en todo el sitio */
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* 2. Forzar que la sección de inicio no exceda el ancho de pantalla */
+#intro {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+#intro .intro-container {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+#intro h1,
+#intro h2,
+#intro h3,
+#intro h4,
+#intro p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 3. Asegurar alineación del botón hamburguesa en la cabecera */
+#header .header-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.nav-toggle {
+  margin-left: auto !important;
+  position: relative !important;
+  right: 0 !important;
+  z-index: 999;
+}

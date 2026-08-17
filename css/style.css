@@ -1438,3 +1438,43 @@ body {
   right: 0 !important;
   z-index: 999;
 }
+
+/* =========================================================
+   ADAPTACIÓN RESPONSIVA DE AUSPICIADORES PARA MÓVILES
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* Ajuste del título "Auspiciadores" para evitar que se desborde */
+  .section-header h2,
+  #supporters .section-header h2 {
+    font-size: 26px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Ajuste del contenedor general de la sección */
+  #supporters,
+  .supporters-container,
+  .supporters-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 5px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Escala la cuadrícula de hexágonos para que quepa completa en pantalla */
+  #supporters .row,
+  .hexagon-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    transform: scale(0.85); /* Reduce el tamaño general */
+    transform-origin: top center;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+}

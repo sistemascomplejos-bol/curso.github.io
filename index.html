@@ -1,651 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8">
-	<title>XXIII Curso Boliviano de Sistemas Complejos - Neurociencia 2025 | CBSC Bolivia</title>
+	<title>XXIV Curso Boliviano de Sistemas Complejos - Sistemas Sociales y dinámicas de opinión en un entorno polariado 2026 | CBSC Bolivia</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta name="keywords" content="sistemas complejos, neurociencia, Bolivia, curso, CBSC, 2025, física, 23, ciencia, Bolivia, UMSA, La Paz, XXIII">
-	<meta name="description" content="XXIII Curso Boliviano de Sistemas Complejos con enfoque en Neurociencia. Visión multidisciplinar entre modelos y aplicaciones. 10 al 14 de noviembre 2025, Bolivia. Curso gratuito virtual.">
+	<meta name="keywords" content="sistemas complejos, dinámica social, Bolivia, curso, CBSC, 2026, física, 24, ciencia, Bolivia, UMSA, La Paz, XXIV">
+	<meta name="description" content="XXIV Curso Boliviano de Sistemas Complejos Sistemas Sociales y dinámicas de opinión en un entorno polarizado.">
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet" /><!-- Bootstrap CSS File -->
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" /><!-- Bootstrap CSS File -->
 	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" /><!-- Libraries CSS Files -->
 	<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="lib/animate/animate.min.css" rel="stylesheet" />
 	<link href="lib/venobox/venobox.css" rel="stylesheet" />
 	<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" /><!-- Main Stylesheet File -->
 	<link href="css/style.css" rel="stylesheet" />
-	<style type="text/css">#intro {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background: #000;
-      overflow: hidden;
-    }
-
-    #canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .intro-container {
-      position: relative;
-      z-index: 1;
-    }
-	</style>
+	<!-- Estilos consolidados en css/style.css -->
 </head>
-<body><!--==========================
+<body id="page-inicio"><!--==========================
   Header
 ============================-->
 <header id="header">
 <div class="container header-container">
-<div class="pull-left" id="logo"><!-- Uncomment below if you prefer to use a text logo --><!-- <h1><a href="#main">C<span>o</span>nf</a></h1>--><a class="scrollto" href="#intro"><img alt="" src="img/logo.png" title="" /></a></div>
+<div class="pull-left" id="logo"><a class="scrollto" href="#intro"><img alt="" src="img/logo.png" title="" /></a></div>
 
 <nav id="nav-menu-container">
 <ul class="nav-menu">
 	<li class="menu-active"><a href="#intro">Inicio</a></li>
-	<!-- <li><a href="#about">About</a></li>-->
-	<li><a href="./afiche.html">Afiche</a></li>
+	<li><a href="./resumenes.html">Programa y Resúmenes</a></li>
 	<li><a href="./expositores.html">Expositores</a></li>
-    <li><a href="#schedule">Programa</a></li>
-    <li><a href="./resumenes.html">Res&uacute;menes</a></li>
-	<li><a href="#supporters">Auspiciadores</a></li>
-    <li><a href="./historia.html">Historia</a></li>
-	<!-- <li><a href="#contact">Contact</a></li>-->
-	<li class="buy-tickets"><a href="https://forms.gle/Z9Aknqj3psbgpDZV6">Inscripci&oacute;n</a></li>
+  <li><a href="./historia.html">Historia</a></li>
 </ul>
 </nav>
-<!-- #nav-menu-container --></div>
+<button type="button" id="navToggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu-container">
+        <span></span><span></span><span></span>
+      </button>
+
+</div>
 </header>
-<!-- #header --><!--==========================
+<!--==========================
   Intro Section
 ============================-->
-<style type="text/css">.intro-container {
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 20px; 
-    border-radius: 10px; 
-  }
-
-  #header {
-    background: rgba(0, 0, 0, 0.5); 
-    padding: 10px 0; 
-    border-radius: 10px; 
-  }
-
-  #header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  #header #logo img {
-    height: 40px; 
-  }
-
-  #nav-menu-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  #nav-menu-container ul {
-    display: flex;
-    gap: 20px; 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #nav-menu-container ul li {
-    display: inline-block;
-  }
-
-  #nav-menu-container ul li a {
-    color: #242424; 
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  #nav-menu-container ul li a:hover {
-    background: rgba(255, 255, 255, 0.2); 
-    text-decoration: none; 
-  }
-
-  #nav-menu-container ul li.menu-active a,
-  #nav-menu-container ul li a:focus {
-    background: transparent;
-    text-decoration: none;
-  }
-
-  #nav-menu-container ul li a:link,
-  #nav-menu-container ul li a:visited,
-  #nav-menu-container ul li a:hover,
-  #nav-menu-container ul li a:active,
-  #nav-menu-container ul li a:focus {
-    text-decoration: none;
-    color: #fff; 
-  }
-
-  a, a:link, a:visited, a:hover, a:active, a:focus {
-    text-decoration: none !important;
-    color: inherit;
-  }
-</style>
+<!-- Estilos consolidados en css/style.css -->
 <section id="intro"><canvas id="canvas"></canvas>
 <div class="intro-container wow fadeIn">
 <h1 class="mb-4 pb-0">XXIV Curso Boliviano de Sistemas Complejos<br />
 
-<span class="small-first-word">Sistemas sociales y dinámicas de opinión </span><br />
-<span class="small-subtitle">en un entorno polarizado</span></br>
+<span class="mb-4 pb-0">Sistemas sociales y dinámicas de opinión </span><br />
+<span class="mb-4 pb-0">en un entorno polarizado</span></br>
 
-<p class="mb-4 pb-0"> 9 al 13 de Noviembre de 2026, Bolivia</p>
+<h3 class="mb-4 pb-0"> 9 al 13 de Noviembre de 2026, Bolivia</h3>
 <a class="about-btn scrollto" href="" style="font-size: 26px; padding: 20px 50px; letter-spacing: 2px;">
   ¡Pr&oacute;ximamente!<br />
-  
 </a>
-</section>
-
-<main id="main"><!--==========================
-      About Section
-    ============================-->
-<section id="about">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<h2>SOBRE EL CURSO</h2>
-
-<p style="text-align: justify;">El XXII Curso Boliviano de Sistemas Complejos realizado el 2024, fue el resultado de una larga tradici&oacute;n de eventos anuales enfocados en la din&aacute;mica no lineal y los sistemas complejos presentes en diversos fen&oacute;menos de la naturaleza. Estos cursos han servido como un espacio de transmisi&oacute;n de conocimiento sobre temas de actualidad e importancia en la ciencia de la complejidad, a trav&eacute;s de exposiciones impartidas por investigadores bolivianos e internacionales. A lo largo de las diferentes versiones del curso, se ha abordado una amplia gama de temas, desde la matem&aacute;tica pura hasta las herramientas para tratar sistemas sociales, con un &eacute;nfasis especial en el car&aacute;cter altamente interdisciplinario de los mismos.</p>
-
-<p style="text-align: justify;">El &uacute;ltimo curso tuvo como tem&aacute;tica principal: &ldquo;Tipping Points, Redes Complejas e Inteligencias&rdquo;, destacando aspectos interdisciplinarios, multidisciplinarios y promoviendo la transdisciplinariedad de estos temas fundamentales. La modalidad del curso fue h&iacute;brida, con sesiones presenciales y/o participaci&oacute;n virtual a trav&eacute;s de Zoom. El curso es completamente gratuito y est&aacute; abierto a participantes tanto bolivianos como extranjeros.
-
-<p>El curso XXIII se llevar&aacute; a cabo del 10 al 14 de noviembre de 2025, en sesiones vespertinas, cuya sesiones ser&aacute;n virtuales. Como tem&aacute;tica principal tendr&aacute; la Neurociencia.</p>
-
-<p></p>
-<!-- </div>
-          <div class="col-lg-3">
-            <h3>¿Dónde?</h3>
-            <p>La Paz, Bolivia</p>
-          </div>
-          <div class="col-lg-3">
-            <h3>¿Cuando?</h3>
-            <p>Del 22 al 26 Noviembre<br></p>
-          </div>
-        </div>--></div>
-</div>
 </div>
 </section>
-<!--==========================
-  Speakers Section
-===========================-->
 
-<section class="section-with-bg" id="speakers">
-<div class="container wow fadeInUp">
-<div class="section-header text-center">
-<h2>Expositores para el CBSC 2025</h2>
-</div>
+<main id="main">
 
-<div class="mx-auto" style="max-width: 600px;">
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#frederic">🇧🇪 Fr&eacute;d&eacute;ric Crevecoeur</a></h4>
-
-<p>Universit&eacute; Catholique de Louvain-la-Neuve</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#sabrina">🇦🇷 Sabrina Camargo</a></h4>
-
-<p>Universidad Nacional San Mart&iacute;n</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#mauro">🇧🇷 Mauro Copelli</a></h4>
-
-<p>Universidade Federal de Pernambuco</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#pedro">🇧🇷 Pedro Carelli</a></h4>
-
-<p>Universidade Federal de Pernambuco</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#sergio">🇧🇷 Sergio Callejas</a></h4>
-
-<p>Universidade Federal de Pernambuco</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#gabriela">🇧🇴 🇧🇷 Gabriela Conde</a></h4>
-
-<p>Grupo de Sistemas Complejos &amp; Instituto Nacional de Pesquisas Espaciais</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#sissi">🇧🇴 Sissi Gryzbowski</a></h4>
-
-<p>LINSCINA &ndash; Universidad Mayor de San Andr&eacute;s</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#miriam">🇧🇴 Miriam Mallea</a></h4>
-
-<p>Facultad de Ciencias Puras y Naturales &ndash; Universidad Mayor de San Andr&eacute;s</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#javier">🇧🇴 Franklin Ernesto Jurado</a></h4>
-
-<p> Universidad T&eacute;cnica de Oruro</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#kevin">🇧🇴 Kevin Iglesias</a></h4>
-
-<p>Ministerio de Educaci&oacute;n</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#pablo">🇧🇴 Pablo Ortega Perales</a></h4>
-
-<p>Universidad Mayor de San Andr&eacute;s</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#francisco">🇲🇽 Francisco Fernández De Miguel</a></h4>
-
-<p>Universidad Nacional Aut&oacute;noma de M&eacute;xico</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#bruno">🇧🇴 🇲🇽 Bruno Bustos</a></h4>
-
-<p>Instituto de Neurobiolog&iacute;a - Universidad Nacional Aut&oacute;noma de M&eacute;xico</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#marcelo">🇧🇴 🇧🇪 Marcelo Ramirez</a></h4>
-
-<p>IIF &ndash; LINSCINA &ndash; UMSA &amp; naXys &ndash; UNamur</p>
-
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--==========================
-  Moderators Section
-===========================-->
-<!--==========================
-<section class="section-with-bg" id="speakers">
-<div class="container wow fadeInUp">
-<div class="section-header text-center">
-<h2>Moderadores del panel de discusi&oacute;n</h2>
-</div>
-
-<div class="mx-auto" style="max-width: 600px;">
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#franklin">🇧🇴 Franklin Ernesto Jurado</a></h4>
-
-<p>Universidad T&eacute;cnica de Oruro</p>
-</div>
-</div>
-
-<div class="row speaker-item">
-<div class="col-md-12">
-<h4><a class="speaker-link" href="expositores.html#zui">🇧🇴 Zui Oporto Almaraz</a></h4>
-
-<p>IIF &ndash; Universidad Mayor de San Andr&eacute;s</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-===========================-->
-
-<!--==========================
-  Programa del evento (Schedule Section)
-===========================-->
-
-<section class="section-with-bg" id="schedule">
-<div class="container wow fadeInUp">
-<div class="section-header">
-<h2>Programa del curso 2025</h2>
-</div>
-
-<ul class="nav nav-tabs" role="tablist">
-	<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day-1" role="tab">Lunes<br>10 de Noviembre</a></li>
-	<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day-2" role="tab">Martes<br>11 de Noviembre</a></li>
-	<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day-3" role="tab">Miércoles<br>12 de Noviembre</a></li>
-	<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#day-4" role="tab">Jueves<br>13 de Noviembre</a></li>
-  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#day-5" role="tab">Viernes<br>14 de Noviembre</a></li>
-</ul>
-
-<!-- Día 1 -->
-<div class="tab-content row justify-content-center">
-<div class="col-lg-9 tab-pane fade" id="day-1" role="tabpanel">
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 14:45 </time></div>
-
-<div class="col-md-10">
-<h4>Acto de inauguraci&oacute;n</h4>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:45 -- 15:15</time></div>
-
-<div class="col-md-10">
-<h4>Gabriela Conde</h4>
-
-<p>Historia del curso boliviano de sistemas complejos</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 16:00</time></div>
-
-<div class="col-md-10">
-<h4>Fr&eacute;d&eacute;ric Crevecoeur</h4>
-
-<p>Formalismo de Control Estocástico Lineal (LQG) y su aplicación a un modelo de movimiento de brazos (código Python incluido)</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:15</time></div>
-
-<div class="col-md-10">
-<h4>Pausa</h4>
-
-<p></p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:15 -- 17:00</time></div>
-
-<div class="col-md-10">
-<h4>Sabrina Camargo</h4>
-
-<p>Ni demasiado r&iacute;gido ni demasiado flexible: El cerebro cr&iacute;tico</p>
-</div>
-</div>
-</div>
-<!-- Día 2 -->
-
-<div class="col-lg-9 tab-pane fade" id="day-2" role="tabpanel">
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 15:15</time></div>
-
-<div class="col-md-10">
-<h4>Fr&eacute;d&eacute;ric Crevecoeur</h4>
-
-<p>Revisión bibliográfica de ejemplos de estudios neurocientíficos que han utilizado LQG para interpretar datos experimentales (comportamiento y actividad neuronal)</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 16:00</time></div>
-
-<div class="col-md-10">
-<h4>Sabrina Camargo</h4>
-
-<p>An&aacute;lisis de datos optogeneticos con ejemplos pr&aacute;cticos</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:15</time></div>
-
-<div class="col-md-10">
-<h4>Pausa</h4>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:15 -- 17:00</time></div>
-
-<div class="col-md-10">
-<h4>Francisco Fern&aacute;ndez de Miguel</h4>
-<p>La comunicación nerviosa más allá de los circuitos neuronales</p>
-</div>
-</div>
-</div>
-<!-- Día 3 -->
-
-<div class="col-lg-9 tab-pane fade" id="day-3" role="tabpanel">
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 15:15</time></div>
-
-<div class="col-md-10">
-<h4>Fr&eacute;d&eacute;ric Crevecoeur</h4>
-
-<p>Revisión bibliográfica de ejemplos de estudios neurocientíficos que han utilizado LQG para interpretar datos experimentales (comportamiento y actividad neuronal)</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 16:00</time></div>
-
-<div class="col-md-10">
-<h4>Sabrina Camargo</h4>
-
-<p>Modelos de Neurona</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:15</time></div>
-
-<div class="col-md-10">
-<h4>Pausa</h4>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:15 -- 16:45</time></div>
-
-<div class="col-md-10">
-<h4>Marcelo Ramirez</h4>
-
-<p>Herramientas de la dinámica no lineal para el análisis de modelos de neurona</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:45 -- 17:10</time></div>
-
-<div class="col-md-10">
-<h4>Kevin Iglesias</h4>
-
-<p>Estudio de sincronización de tríos de neuronas de Rulkov</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>17:10 -- 17:30</time></div>
-
-<div class="col-md-10">
-<h4>Pablo Ortega</h4>
-<p>Caracterizaci&oacute;n de la din&aacute;mica ca&oacute;tica en el modelo de Neurona de Chialvo</p>
-
-</div>
-</div>
-</div>
-
-<!-- Día 4 -->
-
-<div class="col-lg-9 tab-pane fade" id="day-4" role="tabpanel">
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 15:15</time></div>
-
-<div class="col-md-10">
-<h4>Fr&eacute;d&eacute;ric Crevecoeur</h4>
-
-<p>Actividad de la población neuronal en la corteza y aplicación del modelo.</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 16:00</time></div>
-
-<div class="col-md-10">
-<h4>Mauro Copelli</h4>
-
-<p>Collective Neuronal Phenomena and the Critical Brain Hypothesis</p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:15</time></div>
-
-<div class="col-md-10">
-<h4>Pausa</h4>
-
-<p></p>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:15 -- 17:00</time></div>
-
-<div class="col-md-10">
-<h4>Pedro Carelli</h4>
-
-<p>Estudo de assinaturas de criticalidade no c&oacute;rtex atrav&eacute;s de modelos de m&aacute;xima.</p>
-</div>
-</div>
-</div>
-
-
-<!-- Día 5 -->
-<div class="col-lg-9 tab-pane fade show active" id="day-5" role="tabpanel">
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 15:10</time></div>
-
-<div class="col-md-10">
-<h4>Sergio Callejas</h4>
-
-<p>El memristor: el cuarto componente fundamental de la electrónica y su potencial en la computación neuromórfica</p>
-</div>
-</div>
-
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:10 -- 15:30</time></div>
-
-<div class="col-md-10">
-<h4>Bruno Bustos</h4>
-<p>Cinemática del movimiento evocado: explorando la organización funcional de la corteza motora primaria mediante microestimulación intracortical</p>
-</div>
-</div>
-
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:30 -- 15:50</time></div>
-
-<div class="col-md-10">
-<h4>Franklin Ernesto Jurado</h4>
-</div>
-</div>
-
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>15:50 -- 16:00</time></div>
-
-<div class="col-md-10">
-<h4>Pausa</h4>
-</div>
-</div>
-
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:45</time></div>
-
-<div class="col-md-10">
-<h4>Sissi Gryzbowski & Miriam Mallea</h4>
-<p>Evaluaci&oacute;n y logros del Laboratorio Interdisciplinar de Neurociencia, Sistemas Complejos e Inteligencias Natural y Artificial (LINSCINA)</p>
-</div>
-</div>
-
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>16:45 -- 17:30</time></div>
-
-<div class="col-md-10">
-<h4>Mesa de discusión</h4>
-</div>
-</div>
-
-<div class="row schedule-item">
-<div class="col-md-2"><time>17:30 -- 17:45</time></div>
-
-<div class="col-md-10">
-<h4>Acto de Clausura</h4>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--==========================
-      Detalles del evento
-    ============================-->
-
-<section id="about">
-<div class="container">
-<div class="row">
-<div class="col-lg-12">
-<!--<h2>Detalles del Curso</h2>
-
-<p style="text-align: justify;">El acceso a las sesiones del curso mediante Zoom estar&aacute; reservado &uacute;nicamente a los participantes inscritos, dado que el cupo es limitado. Los inscritos recibir&aacute;n sus claves de ingreso por correo electr&oacute;nico y podr&aacute;n unirse a un grupo de WhatsApp para resolver cualquier duda con los organizadores. Para quienes no se hayan inscrito, todas las exposiciones podr&aacute;n seguirse a trav&eacute;s del canal de YouTube, permitiendo que m&aacute;s personas accedan a las charlas.<br />
-El &uacute;ltimo d&iacute;a del curso estar&aacute; dedicado al tema de Inteligencias y culminar&aacute; en un panel de discusi&oacute;n. Durante esta sesi&oacute;n final, los participantes inscritos podr&aacute;n formular preguntas y expresar opiniones sobre las exposiciones, facilitando una interacci&oacute;n activa con los expositores durante la pausa. De esta manera, se promover&aacute; un intercambio de ideas en torno al tema del panel, permitiendo una experiencia de participaci&oacute;n y reflexi&oacute;n compartida.<br />
-Para esta versi&oacute;n del curso, las personas inscritas podr&aacute;n optar por un certificado de participaci&oacute;n si cumplen con al menos 8 horas de asistencia.</p>--> 
-<!-- </div>
-          <div class="col-lg-3">
-            <h3>¿Dónde?</h3>
-            <p>La Paz, Bolivia</p>
-          </div>
-          <div class="col-lg-3">
-            <h3>¿Cuando?</h3>
-            <p>Del 22 al 26 Noviembre<br></p>
-          </div>
-        </div>--></div>
-</div>
-</div>
-</section>
 <!--==========================
   Sponsors Section
 ===========================-->
@@ -656,117 +66,92 @@ Para esta versi&oacute;n del curso, las personas inscritas podr&aacute;n optar p
       <h2>Auspiciadores</h2>
     </div>
 
-    <div class="row no-gutters supporters-wrap clearfix">
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://www.umsa.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="UMSA" class="img-fluid" src="img/supporters/logos/umsa.png" style="width: 100px; height: auto;" />
+    <div class="hex-honeycomb">
+      <div class="hex-row">
+        <div class="hexagon hex-white">
+          <a href="https://www.umsa.bo/" target="_blank" rel="noopener noreferrer" title="Universidad Mayor de San Andrés">
+            <img alt="UMSA" src="img/supporters/logos/umsa.png" />
+            <span class="hex-name">Universidad Mayor de San Andrés</span>
           </a>
-          <div class="institution-name">Universidad Mayor de San Andrés</div>
+        </div>
+        <div class="hexagon hex-white">
+          <a href="https://www.fcpn.edu.bo/" target="_blank" rel="noopener noreferrer" title="Facultad de Ciencias Puras y Naturales">
+            <img alt="FCPN" src="img/supporters/logos/fcpn_03.png" />
+            <span class="hex-name">Facultad de Ciencias Puras y Naturales</span>
+          </a>
+        </div>
+        <div class="hexagon hex-black">
+          <a href="https://www.fiumsa.edu.bo/" target="_blank" rel="noopener noreferrer" title="Carrera de Física">
+            <img alt="Carrera de Física" src="img/supporters/logos/fisica_06.png" />
+            <span class="hex-name">Carrera de Física</span>
+          </a>
+        </div>
+        <div class="hexagon hex-white">
+          <a href="https://claffisica.org.br/page/el-claf" target="_blank" rel="noopener noreferrer" title="Centro Latino-Americano de Física">
+            <img alt="CLAF" src="img/supporters/logos/claflogo.jpg" />
+            <span class="hex-name">Centro Latino-Americano de Física</span>
+          </a>
         </div>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://www.fcpn.edu.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="FCPN" class="img-fluid" src="img/supporters/logos/fcpn_03.png" style="width: 100px; height: auto;" />
+      <div class="hex-row hex-row-offset">
+        <div class="hexagon hex-black">
+          <a href="http://planetario.umsa.bo/" target="_blank" rel="noopener noreferrer" title="Planetario Max Schreier">
+            <img alt="PMS" src="img/supporters/logos/pms_01.png" />
+            <span class="hex-name">Planetario Max Schreier</span>
           </a>
-          <div class="institution-name">Facultad de Ciencias Puras y Naturales</div>
+        </div>
+        <div class="hexagon hex-white">
+          <a href="https://iimat.umsa.bo/" target="_blank" rel="noopener noreferrer" title="Instituto de Investigación Matemática">
+            <img alt="IIMAT" src="img/supporters/logos/my-image.png" />
+            <span class="hex-name">Instituto de Investigación Matemática</span>
+          </a>
+        </div>
+        <div class="hexagon hex-white">
+          <span class="hex-static" title="Instituto de Investigaciones Físicas">
+            <img alt="IIF" src="img/supporters/logos/iif.png" />
+            <span class="hex-name">Instituto de Investigaciones Físicas</span>
+          </span>
+        </div>
+        <div class="hexagon hex-black">
+          <span class="hex-static" title="Grupo de Sistemas Complejos">
+            <img alt="Sistemas Complejos" src="img/supporters/logos/sc_01.png" />
+            <span class="hex-name">Grupo de Sistemas Complejos</span>
+          </span>
+          
         </div>
       </div>
 
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a target="_blank" rel="noopener noreferrer">
-            <img alt="IIF" class="img-fluid" src="img/supporters/logos/iif.png" style="width: 100px; height: auto;" />
+      <div class="hex-row">
+        <div class="hexagon hex-white">
+          <a href="https://www.uto.edu.bo/" target="_blank" rel="noopener noreferrer" title="Universidad Técnica de Oruro (UTO)">
+            <img alt="UTO" src="img/supporters/logos/uto.png" />
+            <span class="hex-name">Universidad Técnica de Oruro</span>
           </a>
-          <div class="institution-name">Instituto de Investigaciones Físicas</div>
         </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://www.fiumsa.edu.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="Carrera de Física" class="img-fluid" src="img/supporters/logos/fisica_06.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Carrera de Física</div>
+        <div class="hexagon hex-white">
+          <span class="hex-static" title="UTO - CIMEM">
+            <img alt="CIMEM" src="img/supporters/logos/CIMEM-UTO.png" />
+            <span class="hex-name">Centro CIMEM - UTO</span>
+          </span>
         </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://iimat.umsa.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="IIMAT" class="img-fluid" src="img/supporters/logos/my-image.png" style="width: 100px; height: auto;" />
+        <div class="hexagon hex-black">
+          <a href="https://www.fni.uto.edu.bo/" target="_blank" rel="noopener noreferrer" title="Facultad Nacional de Ingeniería - UTO">
+            <img alt="FNI-UTO" src="img/supporters/logos/fni_uto.png" />
+            <span class="hex-name">Facultad Nacional de Ingeniería</span>
           </a>
-          <div class="institution-name">Instituto de Investigación Matemática</div>
         </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="http://planetario.umsa.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="PMS" class="img-fluid" src="img/supporters/logos/pms_01.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Planetario Max Schreier</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://www.uto.edu.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="UTO" class="img-fluid" src="img/supporters/logos/uto.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Universidad Técnica de Oruro (UTO)</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a href="https://www.fni.uto.edu.bo/" target="_blank" rel="noopener noreferrer">
-            <img alt="FNI-UTO" class="img-fluid" src="img/supporters/logos/fni_uto.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Facultad Nacional de Ingeniería - UTO</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a target="_blank" rel="noopener noreferrer">
-            <img alt="FNI Física" class="img-fluid" src="img/supporters/logos/FNI_fisica.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Facultad Nacional de Ingeniería - Departamento de Física</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a target="_blank" rel="noopener noreferrer">
-            <img alt="CIMEM" class="img-fluid" src="img/supporters/logos/CIMEM-UTO.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">UTO - CIMEM</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a target="_blank" rel="noopener noreferrer">
-            <img alt="SOBOFI" class="img-fluid" src="img/supporters/logos/sobofi.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Sociedad Boliviana de Física</div>
-        </div>
-      </div>
-
-      <div class="col-lg-2 col-md-4 col-xs-6">
-        <div class="supporter-logo" style="padding: 10px;">
-          <a target="_blank" rel="noopener noreferrer">
-            <img alt="Sistemas Complejos" class="img-fluid" src="img/supporters/logos/sc_01.png" style="width: 100px; height: auto;" />
-          </a>
-          <div class="institution-name">Grupo de Sistemas Complejos</div>
+        <div class="hexagon hex-white">
+          <span class="hex-static" title="Sociedad Boliviana de Física">
+            <img alt="SOBOFI" src="img/supporters/logos/sobofi.png" />
+            <span class="hex-name">Sociedad Boliviana de Física</span>
+          </span>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <!--==========================
     Footer
   ============================-->
@@ -794,14 +179,11 @@ Para esta versi&oacute;n del curso, las personas inscritas podr&aacute;n optar p
 <p>c. 27 Cota-Cota, Campus Universitario<br />
 La Paz, Bolivia<br />
 <br />
-<!-- <strong>Phone:</strong> +1 5589 55488 55<br>--> <strong>Email:</strong> sistemascomplejos@fiumsa.edu.bo</p>
+<strong>Email:</strong> sistemascomplejos@fiumsa.edu.bo</p>
 
 <div class="social-links">
-              <!--  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>-->
               <a href="https://www.facebook.com/gruposistemascomplejosbo" class="facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.instagram.com/sistemascomplejosbo/" class="instagram"><i class="fa fa-instagram"></i></a>
-              <!-- <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>-->
-              <!-- <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>-->
 </div>
 </div>
 </div>
@@ -809,97 +191,26 @@ La Paz, Bolivia<br />
 </div>
 
 <div class="container">
-<div class="copyright">&copy; Copyright <strong>2025</strong>. Complex Systems Group</div>
-
-<div class="credits"><!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>--></div>
+<div class="copyright">&copy; Copyright <strong>2026</strong>. Complex Systems Group</div>
+<div class="credits"></div>
 </div>
 </footer>
-<!-- #footer --><!-- JavaScript Libraries --><script src="lib/jquery/jquery.min.js"></script><script src="lib/jquery/jquery-migrate.min.js"></script><script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script><script src="lib/easing/easing.min.js"></script><script src="lib/superfish/hoverIntent.js"></script><script src="lib/superfish/superfish.min.js"></script><script src="lib/wow/wow.min.js"></script><script src="lib/venobox/venobox.min.js"></script><script src="lib/owlcarousel/owl.carousel.min.js"></script><!-- Contact Form JavaScript File --><script src="contactform/contactform.js"></script><!-- Template Main Javascript File --><script src="js/main.js"></script><!-- Script para el Atractor de Lorenz --><script>
-document.addEventListener("DOMContentLoaded", function() {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    // Ajustar el tamaño del canvas al tamaño de la ventana del navegador
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 
-    const sigma = 10;
-    const rho = 28;
-    const beta = 8 / 3;
-    const dt = 0.01;
-    const scale = 30; // Aumentar el tamaño del gráfico
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/superfish/hoverIntent.js"></script>
+<script src="lib/superfish/superfish.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/venobox/venobox.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="contactform/contactform.js"></script>
+<script src="js/main.js"></script>
 
-    function getRandom(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    let x = getRandom(-5.0, 5.0); 
-    let y = getRandom(-5.0, 5.0); 
-    let z = getRandom(-5.0, 5.0); 
-
-    ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    let prevX = canvas.width / 2 + x * scale;
-    let prevY = canvas.height / 2 + z * scale; 
-
-    let hue = 60 + Math.random() * 180;
-
-    let stopDrawing = false;
-
-    const minHue = 60;   // Amarillo
-    const midHue = 120;  // Verde
-    const maxHue = 240;  // Azul
-    let hueDirection = 1;  // Controla si el hue sube o baja
-
-    function draw() {
-        if (stopDrawing) return;
-
-        const dx = sigma * (y - x) * dt;
-        const dy = (x * (rho - z) - y) * dt;
-        const dz = (x * y - beta * z) * dt;
-        x += dx;
-        y += dy;
-        z += dz;
-
-
-        const newX = canvas.width / 2 + x * scale;
-        const newY = canvas.height / 2 + 650 - z * scale; 
-        
-        
-        hue += 0.5 * hueDirection;
-
-        // Cambia la dirección de la transición suavemente en los límites definidos
-        if (hue >= maxHue || hue <= minHue) hueDirection *= -1;
-
-        const color = `hsl(${hue}, 100%, 50%)`;
-
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2; 
-        ctx.beginPath();
-        ctx.moveTo(prevX, prevY);
-        ctx.lineTo(newX, newY);
-        ctx.stroke();
-
-        prevX = newX;
-        prevY = newY;
-
-        requestAnimationFrame(draw);
-    }
-
-
-    draw();
-
-    const tiempoLimite = 50000;
-    setTimeout(function() {
-        stopDrawing = true;
-    }, tiempoLimite);
-});
-    </script></main>
-</body>
+<script src="script.js"></script>
+</main>
+    <script src="nav-toggle.js"></script>
+  </body>
 </html>

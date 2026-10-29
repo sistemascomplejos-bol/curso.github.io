@@ -23,7 +23,10 @@
   --pole-b: #ffffff; /* cian, más vivo */
   --pole-a-soft: rgba(255, 95, 122, 0.22);
   --pole-b-soft: rgba(41, 224, 209, 0.22);
-  --gradient-pole: linear-gradient(90deg, var(--pole-a), var(--pole-b));
+  --gradient-pole: linear-gradient(
+    var(--pole-a),
+    var(--pole-a)
+  ); /* color sólido (sin degradado) */
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
   --font-mono: font-family: "Open Sans", sans-serif;
@@ -215,20 +218,25 @@ h4 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: var(--gradient-pole);
-  color: #0b0d13;
+  background: var(--pole-a);
+  /* !important: la regla global "a { color: inherit }" lo dejaba blanco */
+  color: var(--bg) !important;
   width: 40px;
   height: 40px;
   text-align: center;
   border-radius: 50px;
   right: 15px;
   bottom: 15px;
-  transition: background 0.5s ease-in-out;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .back-to-top i {
   font-size: 24px;
   padding-top: 6px;
+  color: inherit;
 }
 
 .back-to-top:focus {
@@ -237,8 +245,9 @@ h4 {
 }
 
 .back-to-top:hover {
-  filter: brightness(1.1);
-  color: #0b0d13;
+  background: #ffffff;
+  color: var(--bg) !important;
+  transform: translateY(-2px);
 }
 
 /* Sections Header
@@ -879,21 +888,39 @@ h4 {
   overflow: hidden;
 }
 
-#canvas {
+/* Red de partículas de fondo (particles.js) */
+#particles-js {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
+}
+
+#particles-js canvas {
+  display: block;
+}
+
+/* quita la capa marrón heredada de la plantilla y usa el fondo oscuro de siempre */
+#intro:before {
+  display: none;
+}
+
+#intro {
+  background: #0b0d13;
 }
 
 .intro-container {
   position: relative;
   z-index: 1;
-  background: rgba(11, 13, 19, 0.45);
-  backdrop-filter: blur(6px);
   padding: 28px 24px;
-  border-radius: 16px;
+  /* deja pasar el mouse a las partículas; el botón sí es clickeable */
+  pointer-events: none;
+}
+
+.intro-container a {
+  pointer-events: auto;
 }
 
 #header .container {

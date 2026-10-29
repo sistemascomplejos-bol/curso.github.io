@@ -28,6 +28,62 @@
 
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet" />
+    <!-- Horario en 5 columnas (un día por columna) -->
+    <style>
+      #schedule .container { max-width: 1400px; }
+
+      #schedule .tab-content {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 20px;
+        margin: 0;
+        align-items: start;
+      }
+
+      /* anula el col-lg-9 de Bootstrap */
+      #schedule .day-panel {
+        flex: none;
+        width: auto;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      /* dentro de cada día: hora arriba, título abajo */
+      #schedule .day-panel .schedule-item {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      #schedule .day-panel .schedule-item > [class*="col-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      #schedule .day-panel .schedule-item h4 { font-size: 18px; }
+
+      /* pantallas medianas: 2-3 columnas */
+      @media (max-width: 1199px) {
+        #schedule .tab-content { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      /* tablet */
+      @media (max-width: 767px) {
+        #schedule .tab-content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      /* celular: 5 columnas deslizables */
+      @media (max-width: 575px) {
+        #schedule .tab-content {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 12px;
+          padding-bottom: 12px;
+      }
+      }
+  #schedule .day-panel {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+    </style>
+
 
     <!-- =======================================================
     Theme Name: TheEvent
@@ -83,7 +139,7 @@
 <!-- Día 1 -->
 <div class="tab-content row justify-content-center">
 <div class="col-lg-9 day-panel" id="day-1">
-<h3 class="day-panel-title">Lunes 23 de Noviembre</h3>
+<h3 class="day-panel-title">Lunes 9 de Noviembre</h3>
 <div class="row schedule-item">
 <div class="col-md-2"><time>14:00 -- 14:15 </time></div>
 
@@ -125,7 +181,7 @@
 <!-- D�a 2 -->
 
 <div class="col-lg-9 day-panel" id="day-2">
-<h3 class="day-panel-title">Martes 24 de Noviembre</h3>
+<h3 class="day-panel-title">Martes 10 de Noviembre</h3>
 <div class="row schedule-item">
 <div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
@@ -166,7 +222,7 @@
 <!-- D�a 3 -->
 
 <div class="col-lg-9 day-panel" id="day-3">
-<h3 class="day-panel-title">Miércoles 25 de Noviembre</h3>
+<h3 class="day-panel-title">Miércoles 11 de Noviembre</h3>
 <div class="row schedule-item">
 <div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
@@ -208,7 +264,7 @@
 <!-- D�a 4 -->
 
 <div class="col-lg-9 day-panel" id="day-4">
-<h3 class="day-panel-title">Jueves 26 de Noviembre</h3>
+<h3 class="day-panel-title">Jueves 12 de Noviembre</h3>
 <div class="row schedule-item">
 <div class="col-md-2"><time>14:00 -- 15:00</time></div>
 
@@ -243,7 +299,7 @@
 
 <!-- D�a 5 -->
 <div class="col-lg-9 day-panel" id="day-5">
-<h3 class="day-panel-title">Viernes 27 de Noviembre</h3>
+<h3 class="day-panel-title">Viernes 13 de Noviembre</h3>
 <div class="row schedule-item">
 <div class="col-md-2"><time>14:00 -- 14:30</time></div>
 

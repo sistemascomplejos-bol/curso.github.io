@@ -12,7 +12,18 @@
 	<link href="lib/animate/animate.min.css" rel="stylesheet" />
 	<link href="lib/venobox/venobox.css" rel="stylesheet" />
 	<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" /><!-- Main Stylesheet File -->
-	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/style.css?v=2" rel="stylesheet" />
+	<!-- Panal fluido (celulares): va aquí, en el propio HTML, para que no dependa de la caché de style.css -->
+	<style>
+	  :root { --hex-w: min(300px, calc((100vw - 40px) / 4.2)) !important; }
+	  .hexagon .hex-name { font-size: clamp(6px, calc(var(--hex-w) * 0.04), 12px) !important; }
+	  @media (max-width: 991px) {
+	    .hexagon img { max-height: 38% !important; }
+	    .hexagon .hex-name { max-width: 76% !important; margin-top: 2px !important; }
+	    #supporters, #supporters .container { overflow: hidden !important; max-width: 100% !important; width: 100% !important; }
+	    #supporters .container { padding-left: 15px !important; padding-right: 15px !important; box-sizing: border-box !important; }
+	  }
+	</style>
 	<!-- Estilos consolidados en css/style.css -->
 </head>
 <body id="page-inicio"><!--==========================
@@ -124,15 +135,15 @@
         <!-- Celda libre (futuro auspiciador). Si no se usa, bórrala junto con su div. -->
         <div class="hexagon hex-white"></div>
         <div class="hexagon hex-black">
-          <span class="hex-static" title="Grupo de Sistemas Complejos">
-            <img alt="Sistemas Complejos" src="img/supporters/logos/sc_01.png" />
-            <span class="hex-name">Grupo de Sistemas Complejos</span>
-          </span>
-        </div>
-        <div class="hexagon hex-white">
           <span class="hex-static" title="LINSCINA">
             <img alt="LINSCINA" src="img/supporters/logos/linscina.jpeg" />
             <span class="hex-name">LINSCINA</span>
+          </span>
+        </div>
+        <div class="hexagon hex-black">
+          <span class="hex-static" title="Grupo de Sistemas Complejos">
+            <img alt="Sistemas Complejos" src="img/supporters/logos/sc_01.png" />
+            <span class="hex-name">Grupo de Sistemas Complejos</span>
           </span>
         </div>
       </div>

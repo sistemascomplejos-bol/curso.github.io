@@ -1042,7 +1042,8 @@ a:focus {
 # Panal hexagonal de auspiciadores (index.html)
 --------------------------------------------------------------*/
 :root {
-  --hex-w: 300px;
+  /* Fluido: 4 hexágonos por fila siempre caben en el ancho de pantalla */
+  --hex-w: min(300px, calc((100vw - 40px) / 4.2));
   --hex-h: calc(var(--hex-w) * 1.1547); /* Geometría exacta pointy-top */
 }
 
@@ -1133,7 +1134,7 @@ a:focus {
   display: block;
   margin-top: 8px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: clamp(6px, calc(var(--hex-w) * 0.04), 12px);
   line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.2px;
@@ -1147,26 +1148,17 @@ a:focus {
   color: var(--bg);
 }
 
-@media (max-width: 768px) {
-  :root {
-    --hex-w: 110px;
-  }
-
-  /* Se reduce el logo para dejarle más espacio vertical al nombre dentro
-     de la franja "segura" del hexágono (la zona central donde el
-     clip-path no recorta el contenido). */
+@media (max-width: 991px) {
+  /* Logo más pequeño para dejarle espacio al nombre dentro de la franja
+     "segura" del hexágono (donde el clip-path no recorta el contenido). */
   .hexagon img {
-    max-height: 34%;
+    max-height: 38%;
   }
 
   .hexagon .hex-name {
-    font-size: 7px;
     line-height: 1.15;
     margin-top: 2px;
-    max-width: 74%;
-    /* Máximo 2 líneas: si el nombre es más largo se corta con "…" en vez
-       de desbordarse fuera de la forma del hexágono (que antes cortaba
-       el texto a la mitad de una letra). */
+    max-width: 76%;
     max-height: calc(1.15em * 2);
     overflow: hidden;
     display: -webkit-box;
@@ -1467,56 +1459,57 @@ body {
 }
 
 /* =========================================================
-   CORRECCIÓN DEFINITIVA DE SCROLL (SIN RECORTE IZQUIERDO)
+   Auspiciadores en pantallas chicas: el panal es fluido (--hex-w),
+   así que ya no hace falta scroll horizontal.
    ========================================================= */
-
 @media (max-width: 991px) {
-  /* 1. Previene cortes en la sección general */
-  #supporters,
-  .supporters-section {
-    width: 100% !important;
-    overflow: hidden !important;
-    padding-bottom: 20px !important;
-  }
-
-  /* 2. Activa el área de desplazamiento horizontal */
-  #supporters .container,
-  .supporters-container {
+  #supporters .container {
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
     padding-left: 15px !important;
     padding-right: 15px !important;
     box-sizing: border-box !important;
-    display: block !important;
+  }
+  #supporters {
+    overflow-x: hidden;
+  }
+}
+
+/* =========================================================
+   Celulares en horizontal (poca altura): la portada ya no se
+   recorta y el contenido puede crecer más que la pantalla.
+   ========================================================= */
+@media (max-height: 520px) and (orientation: landscape) {
+  #intro {
+    height: auto;
+    min-height: 100vh;
   }
 
-  /* 3. Fuerza la alineación al inicio (left: 0) para ver desde el 1er hexágono */
-  #supporters .row,
-  #supporters .hexagon-grid,
-  .supporters-container .row {
-    display: inline-flex !important;
-    min-width: 680px !important;
-    width: 680px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    justify-content: flex-start !important; /* Alinea al inicio para permitir scroll completo */
-    transform: none !important;
-    float: none !important;
+  #intro .intro-container {
+    position: relative;
+    top: auto;
+    min-height: 100vh;
+    padding: 90px 24px 28px;
   }
 
-  /* 4. Estilizado de la barra de scroll */
-  #supporters .container::-webkit-scrollbar {
-    height: 6px;
+  #intro h1 {
+    font-size: 24px;
   }
-  #supporters .container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+
+  #intro h3 {
+    font-size: 16px;
   }
-  #supporters .container::-webkit-scrollbar-thumb {
-    background: #00d2fe;
-    border-radius: 10px;
+
+  #intro .about-btn {
+    font-size: 18px !important;
+    padding: 12px 30px !important;
+  }
+
+  #header.nav-open #nav-menu-container {
+    max-height: calc(100vh - 70px);
+  }
+
+  #supporters {
+    padding: 30px 0;
   }
 }

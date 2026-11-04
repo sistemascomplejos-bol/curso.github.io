@@ -32,6 +32,33 @@
     <style>
       #schedule .container { max-width: 1400px; }
 
+      /* Selector de zona horaria */
+      #schedule .tz-selector {
+        display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        gap: 10px 14px; margin: 0 auto 28px; text-align: center;
+      }
+      #schedule .tz-selector label {
+        margin: 0; font-family: var(--font-mono, monospace); font-weight: 600;
+        font-size: 14px; color: var(--ink, inherit);
+      }
+      #schedule .tz-selector select {
+        font-family: var(--font-mono, monospace); font-size: 14px; font-weight: 500;
+        color: var(--ink, inherit); background: rgba(255,255,255,0.06);
+        border: 1px solid var(--pole-a, #4f8cff); border-radius: 6px;
+        padding: 8px 12px; width: 440px; max-width: 100%; cursor: pointer;
+        text-overflow: ellipsis;
+      }
+      #schedule .tz-selector select option { color: #111; background: #fff; }
+      #schedule .tz-selector select:focus { outline: 2px solid var(--pole-a, #4f8cff); outline-offset: 2px; }
+      #schedule .tz-note {
+        flex: 0 0 100%; margin: 0; font-size: 13px; color: var(--ink-muted, inherit); opacity: .85;
+      }
+      #schedule .tz-daydiff {
+        display: inline-block; margin-left: 4px; padding: 1px 6px; border-radius: 4px;
+        font-size: 11px; font-weight: 700; background: var(--pole-b, #e5484d); color: #0a0e1a;
+        vertical-align: middle; white-space: nowrap;
+      }
+
       #schedule .tab-content {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -81,7 +108,6 @@
     flex: 0 0 85%;
     scroll-snap-align: start;
   }
-}
     </style>
 
 
@@ -141,7 +167,7 @@
 <div class="col-lg-9 day-panel" id="day-1">
 <h3 class="day-panel-title">Lunes 23 de Noviembre</h3>
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:00 -- 15:15 </time></div>
+<div class="col-md-2"><time>14:00 -- 14:45 </time></div>
 
 <div class="col-md-10">
 <h4>Acto de inauguraci&oacute;n e Historia</h4>
@@ -149,17 +175,16 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 16:00</time></div>
+<div class="col-md-2"><time>14:45 -- 15:45</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local 1</h4>
-
-<p></p>
+<h4>Pablo Balenzuela</h4>
+<p>Parte 1</p>
 </div>
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:30</time></div>
+<div class="col-md-2"><time>15:45 -- 16:15</time></div>
 
 <div class="col-md-10">
 <h4>Receso</h4>
@@ -169,12 +194,20 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:30 -- 17:30</time></div>
+<div class="col-md-2"><time>16:15 -- 17:00</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
+<h4>Expostior Local</h4>
+<p></p>
+</div>
+</div>
 
-<p>Parte 1</p>
+<div class="row schedule-item">
+<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+
+<div class="col-md-10">
+<h4>Expositor Local</h4>
+<p></p>
 </div>
 </div>
 </div>
@@ -218,6 +251,16 @@
 <p>Parte 2</p>
 </div>
 </div>
+
+<div class="row schedule-item">
+<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+
+<div class="col-md-10">
+<h4>Expositor local</h4>
+
+<p></p>
+</div>
+</div>
 </div>
 <!-- D�a 3 -->
 
@@ -256,7 +299,16 @@
 
 <div class="col-md-10">
 <h4>Pablo Balenzuela</h4>
-<p>Parte 2</p>
+<p>Parte 3</p>
+</div>
+</div>
+
+<div class="row schedule-item">
+<div class="col-md-2"><time>16:45 -- 17:15</time></div>
+
+<div class="col-md-10">
+<h4>Expositor</h4>
+<p></p>
 </div>
 </div>
 </div>
@@ -266,17 +318,27 @@
 <div class="col-lg-9 day-panel" id="day-4">
 <h3 class="day-panel-title">Jueves 26 de Noviembre</h3>
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:00 -- 16:00</time></div>
+<div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
 <div class="col-md-10">
-<h4>Conversatorio</h4>
+<h4>Expositor</h4>
 
 <p></p>
 </div>
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 16:30</time></div>
+<div class="col-md-2"><time>14:45 -- 15:30</time></div>
+
+<div class="col-md-10">
+<h4>Expositor</h4>
+
+<p></p>
+</div>
+</div>
+
+<div class="row schedule-item">
+<div class="col-md-2"><time>15:30 -- 16:00</time></div>
 
 <div class="col-md-10">
 <h4>Receso</h4>
@@ -286,10 +348,19 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:30 -- 17:30</time></div>
+<div class="col-md-2"><time>16:00 -- 17:00</time></div>
 
 <div class="col-md-10">
 <h4>Pablo Balenzuela</h4>
+<p>Parte 4</p>
+</div>
+</div>
+
+<div class="row schedule-item">
+<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+
+<div class="col-md-10">
+<h4>Expositor</h4>
 
 <p></p>
 </div>
@@ -316,7 +387,7 @@
 
 <div class="col-md-10">
 <h4>Pablo Balenzuela</h4>
-<p></p>
+<p>Parte 5</p>
 </div>
 </div>
 
@@ -335,6 +406,7 @@
 
 <div class="col-md-10">
 <h4>Pablo Balenzuela</h4>
+<p>Parte 5</p>
 </div>
 </div>
 
@@ -477,6 +549,28 @@
         </p>
       </div>
 
+      <footer class="blockquote-footer text-left mb-3">
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 16px; margin: 6px 0 0 0;">
+        Mario Sandoval Espinoza
+      </h4>
+    </footer>
+    
+    <hr class="my-4 new1" />
+
+    <div class="lecturas-list mt-4">
+      
+      <!-- Clase 1 -->
+      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+        <div class="d-flex align-items-center mb-2 flex-wrap">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+            Transferencia de información potenciada por pares de fuerzas activos en un modelo de bandadas que giran
+          </h5>
+        </div>
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+          Los trabajos fundamentales sobre colectivos de partículas autopropulsadas comenzaron proponiendo un modelo difusivo (sobreamortiguado) para la transferencia de información que tiene lugar en ellos [1]. Posteriormente, la introducción de la inercia de autorrotación dio lugar a un modelo subamortiguado, capaz de describir con mayor precisión el flujo de información durante un giro real de una bandada [2]. Dicho modelo fue perfeccionado recientemente mediante la incorporación de torques no lineales, lo que permitió un mejor ajuste con los resultados experimentales [3]. El presente trabajo amplía este último enfoque añadiendo torques activos, al tiempo que conserva elementos clave como la inercia de autorrotación y la no linealidad. La propuesta de incluir torques activos internos se fundamenta en la biología: las aves pueden inyectar energía rotacional (presumiblemente mediante actividad muscular) al inclinar su cuerpo durante un giro, lo que distingue a estos torques activos de los torques aerodinámicos pasivos. Se observa que, si una partícula activa inicia un giro con una velocidad angular finita, los torques activos añadidos aumentan —de manera unidireccional— la velocidad y la eficiencia de la transferencia de información en el colectivo durante el giro, dotándolo además de un carácter no recíproco. Asimismo, se analiza una descripción en el límite continuo, a partir de la cual se deriva la correspondiente relación de dispersión.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -511,7 +605,7 @@
               <ul style="text-align: justify">
                 <li><a>Sistemas Complejos Bolivia</a></li>
                 <li>
-                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez, Leonardo Loza, Marco P&eacute;rez, Mateo Camacho, Pedro Coronel, Ver&oacute;nica Subieta y Zui Oporto.
+                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jimmy Santamaria, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez, Leonardo Loza, Marco P&eacute;rez, Mateo Camacho, Pedro Coronel, Ver&oacute;nica Subieta y Zui Oporto.
                 </li>
               </ul>
             </div>
@@ -583,5 +677,6 @@
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
       <script src="nav-toggle.js"></script>
+    <script src="js/timezone.js"></script>
   </body>
 </html>

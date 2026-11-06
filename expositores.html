@@ -23,6 +23,12 @@
     <!-- Main Stylesheet File -->
     <link href="css/flag-icon.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+      /* Al llegar desde un enlace (expositores.html#nombre) el header fijo no tapa el título */
+      section.seccion[id] {
+        scroll-margin-top: 100px;
+      }
+    </style>
   </head>
 
   <body id="page-expositores">
@@ -100,14 +106,21 @@
               <a href="./expositores.html">Expositores</a>
             </li>
             <li><a href="./historia.html">Historia</a></li>
+            <li><a href="./afiche.html">Afiche</a></li>
             <!-- <li><a href="#contact">Contact</a></li>-->
             <!-- <li class="buy-tickets"><a href="https://forms.gle/Z9Aknqj3psbgpDZV6">Inscripci&oacute;n</a></li>-->
           </ul>
         </nav>
-<button type="button" id="navToggle" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu-container">
-        <span></span><span></span><span></span>
-      </button>
-
+        <button
+          type="button"
+          id="navToggle"
+          class="nav-toggle"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="nav-menu-container"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
     <!-- #header -->
@@ -115,54 +128,162 @@
     <main id="main" class="main-page">
       <!--SECCIÓN ABOUT-->
       <section class="section-with-bg" id="schedule">
-    <div class="container wow fadeInUp">
-<div class="section-header">
-<h2>Expositores</h2>
-</div>
+        <div class="container wow fadeInUp">
+          <div class="section-header">
+            <h2>Expositor principal</h2>
+          </div>
+        </div>
       </section>
 
-      <!-- Expositor 1 -->
+      <!-- Expositor principal -->
       <section id="balenzuela" class="container seccion">
         <div class="jumbotron">
           <div class="row">
             <div class="col-12">
               <!-- Cambia la clase para que el texto ocupe todo el ancho -->
-              <h1><span class="flag-icon flag-icon-ar"></span> Pablo Balenzuela</h1>
+              <p
+                class="expositor-principal"
+                style="
+                  display: inline-block;
+                  margin: 0 0 12px 0;
+                  padding: 5px 12px;
+                  border-radius: 4px;
+                  background: var(--pole-a, #4f8cff);
+                  color: #0a0e1a;
+                  font-family: var(--font-mono, monospace);
+                  font-weight: 700;
+                  font-size: 12px;
+                  letter-spacing: 0.08em;
+                  text-transform: uppercase;
+                "
+              >
+                Expositor principal
+              </p>
+              <h1>
+                <span class="flag-icon flag-icon-ar"></span> Pablo Balenzuela
+              </h1>
               <footer class="blockquote-footer">
                 <h4 class="autor">Universidad de Buenos Aires, Argentina</h4>
               </footer>
               <hr class="my-3 new1" />
               <p class="text-justify">
-                Físico e investigador argentino nacido en Buenos Aires
-                en 1969. Se formó en la Universidad de Buenos Aires, donde
-                obtuvo su Licenciatura en Física en 1998 y su Doctorado en
-                Ciencias Físicas en 2002. Es investigador del CONICET y profesor
-                de la Facultad de Ciencias Exactas y Naturales de la UBA. Su
-                trabajo se centra en la física de sistemas complejos, la
-                mecánica estadística y la dinámica no lineal, aplicadas al
-                estudio de fenómenos biológicos y sociales. Entre sus
-                principales líneas de investigación se encuentran las redes
-                complejas, la organización de la actividad cerebral y el estudio
-                de los comportamientos colectivos en grupos humanos y redes
-                sociales. Para ello combina modelos matemáticos, análisis de
-                datos y herramientas de la física para comprender cómo surgen
-                comportamientos colectivos a partir de las interacciones entre
-                individuos. También realizó una etapa de investigación
-                posdoctoral en la Universitat Politècnica de Catalunya, en
-                España.
+                Físico e investigador argentino nacido en Buenos Aires en 1969.
+                Se formó en la Universidad de Buenos Aires, donde obtuvo su
+                Licenciatura en Física en 1998 y su Doctorado en Ciencias
+                Físicas en 2002. Es investigador del CONICET y profesor de la
+                Facultad de Ciencias Exactas y Naturales de la UBA. Su trabajo
+                se centra en la física de sistemas complejos, la mecánica
+                estadística y la dinámica no lineal, aplicadas al estudio de
+                fenómenos biológicos y sociales. Entre sus principales líneas de
+                investigación se encuentran las redes complejas, la organización
+                de la actividad cerebral y el estudio de los comportamientos
+                colectivos en grupos humanos y redes sociales. Para ello combina
+                modelos matemáticos, análisis de datos y herramientas de la
+                física para comprender cómo surgen comportamientos colectivos a
+                partir de las interacciones entre individuos. También realizó
+                una etapa de investigación posdoctoral en la Universitat
+                Politècnica de Catalunya, en España.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      <section class="section-with-bg">
+        <div class="container wow fadeInUp">
+          <div class="section-header">
+            <h2>Expositores y Ponentes</h2>
+          </div>
+        </div>
+      </section>
+
       <!-- Expositor 1 -->
+      <section id="santamaria" class="container seccion">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+              <h1>
+                <span class="flag-icon flag-icon-bo"></span> Jimmy Santamaria
+              </h1>
+              <footer class="blockquote-footer">
+                <h4 class="autor">Universidad Mayor de San Andrés, Bolivia.</h4>
+              </footer>
+              <hr class="my-3 new1" />
+              <p class="text-justify"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expositor 2 -->
+      <section id="avalos" class="container seccion">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+              <h1>
+                <span class="flag-icon flag-icon-bo"></span> Luciana Avalos
+                Ortega
+              </h1>
+              <footer class="blockquote-footer">
+                <h4 class="autor">Universidad Mayor de San Andrés, Bolivia.</h4>
+              </footer>
+              <hr class="my-3 new1" />
+              <p class="text-justify">
+                Luciana Madelaine Ávalos Ortega es licenciada en Trabajo Social
+                por la Universidad Mayor de San Andrés (UMSA), titulada por
+                excelencia en 2024 y egresada de la Maestría en Trabajo Social,
+                con mención en Resolución de Conflictos y Mediación Familiar.
+                Actualmente, cursa la carrera de Ciencia Política y Gestión
+                Pública, con mención en Relaciones Internacionales y Diplomacia.
+                Cuenta con experiencia académica e investigativa
+                interdisciplinaria en intervención socio-sanitaria,
+                socio-educativa, familia y política. Es autora de un artículo
+                publicado en 2025 en la obra Tendencias de la Ciencia Política
+                Prospectiva, sobre descolonización epistémica, plurinacionalidad
+                y movimiento político de mujeres, y de otro artículo de próxima
+                publicación en 2026 en la revista Aportes 80 años de Trabajo
+                Social, titulado Entre el cuidado y el desgaste: el síndrome de
+                burnout del trabajo social en el área de salud. Está adscrita a
+                la Facultad de Ciencias Sociales de la UMSA, en La Paz, Bolivia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expositor 3 -->
+      <section id="sandoval" class="container seccion">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+              <h1>
+                <span class="flag-icon flag-icon-mx"></span> Mario Sandoval
+                Espinoza
+              </h1>
+              <footer class="blockquote-footer">
+                <h4 class="autor">
+                  Universidad Autónoma Metropolitana, ciudad de México.
+                </h4>
+              </footer>
+              <hr class="my-3 new1" />
+              <p class="text-justify"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expositor 4 -->
       <section id="subieta" class="container seccion">
         <div class="jumbotron">
           <div class="row">
             <div class="col-12">
               <!-- Cambia la clase para que el texto ocupe todo el ancho -->
-              <h1><span class="flag-icon flag-icon-bo"></span> Verónica Subieta</h1>
+              <h1>
+                <span class="flag-icon flag-icon-bo"></span> Verónica Subieta
+              </h1>
               <footer class="blockquote-footer">
                 <h4 class="autor">
                   Grupo de Sistemas Complejos - Carrera de Física, Bolivia
@@ -175,28 +296,7 @@
         </div>
       </section>
 
-      <!-- Expositor 1 -->
-      <section id="lino" class="container seccion">
-        <div class="jumbotron">
-          <div class="row">
-            <div class="col-12">
-              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
-              <h1><span class="flag-icon flag-icon-bo"></span> José María Lino</h1>
-              <footer class="blockquote-footer">
-                <h4 class="autor">
-                  Grupo de Sistemas Complejos - Carrera de Física, Bolivia
-                </h4>
-              </footer>
-              <hr class="my-3 new1" />
-              <p class="text-justify">
-                Licenciado en Física por la Universidad Mayor de San Andrés (UMSA), en La Paz, Bolivia. Sus intereses académicos se centran en los sistemas complejos, la física computacional y el estudio de fenómenos colectivos mediante modelos matemáticos y simulaciones computacionales.  Asimismo, cuenta con experiencia de apoyo en actividades de investigación y en el ámbito de la enseñanza de la Física.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Expositor 1 -->
+      <!-- Expositor 5 -->
       <section id="perez" class="container seccion">
         <div class="jumbotron">
           <div class="row">
@@ -215,17 +315,37 @@
         </div>
       </section>
 
-
-      <!-- Expositor 1 -->
-      <section id="perez" class="container seccion">
+      <!-- Expositor 6 -->
+      <section id="apaza" class="container seccion">
         <div class="jumbotron">
           <div class="row">
             <div class="col-12">
               <!-- Cambia la clase para que el texto ocupe todo el ancho -->
-              <h1><span class="flag-icon flag-icon-mx"></span> Mario Sandoval Espinoza</h1>
+              <h1>
+                <span class="flag-icon flag-icon-bo"></span> Leonardo Apaza
+              </h1>
+              <footer class="blockquote-footer">
+                <h4 class="autor">Universidad Pública de El Alto.</h4>
+              </footer>
+              <hr class="my-3 new1" />
+              <p class="text-justify"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Expositor 7 -->
+      <section id="gandica" class="container seccion">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+              <h1>
+                <span class="flag-icon flag-icon-ve"></span> Yérali Gandica
+              </h1>
               <footer class="blockquote-footer">
                 <h4 class="autor">
-                  Universidad Autónoma Metropolitana, ciudad de México.
+                  <!--Universidad Mayor de San Andrés, Bolivia.-->
                 </h4>
               </footer>
               <hr class="my-3 new1" />
@@ -235,8 +355,36 @@
         </div>
       </section>
 
+      <!-- Expositor 8 -->
+      <section id="lino" class="container seccion">
+        <div class="jumbotron">
+          <div class="row">
+            <div class="col-12">
+              <!-- Cambia la clase para que el texto ocupe todo el ancho -->
+              <h1>
+                <span class="flag-icon flag-icon-bo"></span> José María Lino
+              </h1>
+              <footer class="blockquote-footer">
+                <h4 class="autor">
+                  Grupo de Sistemas Complejos - Carrera de Física, Bolivia
+                </h4>
+              </footer>
+              <hr class="my-3 new1" />
+              <p class="text-justify">
+                Licenciado en Física por la Universidad Mayor de San Andrés
+                (UMSA), en La Paz, Bolivia. Sus intereses académicos se centran
+                en los sistemas complejos, la física computacional y el estudio
+                de fenómenos colectivos mediante modelos matemáticos y
+                simulaciones computacionales. Asimismo, cuenta con experiencia
+                de apoyo en actividades de investigación y en el ámbito de la
+                enseñanza de la Física.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- Expositor 14 -->
+      <!-- Expositor 9 -->
       <section id="marcelo" class="container seccion">
         <div class="jumbotron">
           <div class="row">
@@ -347,7 +495,11 @@ FIN SECCIÓN MODERADORES -->
               <ul style="text-align: justify">
                 <li><a href="">Sistemas Complejos Bolivia</a></li>
                 <li>
-                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jimmy Santamaria, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez, Leonardo Loza, Marco P&eacute;rez, Mateo Camacho, Pedro Coronel, Ver&oacute;nica Subieta y Zui Oporto.
+                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jimmy
+                  Santamaria, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez,
+                  Leonardo Apaza, Marco P&eacute;rez, Mateo Camacho, Pedro
+                  Coronel, Sissi Gryzbowski Ver&oacute;nica Subieta y Zui
+                  Oporto.
                 </li>
               </ul>
             </div>
@@ -402,6 +554,6 @@ FIN SECCIÓN MODERADORES -->
     <script src="lib/venobox/venobox.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-      <script src="nav-toggle.js"></script>
+    <script src="nav-toggle.js"></script>
   </body>
 </html>

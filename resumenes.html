@@ -108,6 +108,30 @@
     flex: 0 0 85%;
     scroll-snap-align: start;
   }
+      /* Altura proporcional a la duración (la fija js/duracion.js) */
+      #schedule .container { max-width: 1700px; }
+      #schedule .day-panel .schedule-item {
+        box-sizing: border-box; overflow: hidden;
+        align-content: flex-start; /* hora y título arriba; el espacio sobrante queda abajo */
+        padding-top: 8px; padding-bottom: 6px;
+      }
+      /* Hora más grande */
+      #schedule .day-panel .schedule-item time { font-size: 17px; }
+
+      /* Títulos del horario como enlaces al resumen */
+      #schedule .day-panel .schedule-item h4 a {
+        color: inherit; text-decoration: underline;
+        text-decoration-color: rgba(255,255,255,0.35); text-underline-offset: 4px;
+        transition: color .15s, text-decoration-color .15s;
+      }
+      #schedule .day-panel .schedule-item h4 a:hover {
+        color: var(--pole-a, #4f8cff); text-decoration-color: currentColor;
+      }
+
+      /* Al saltar a un resumen, que no quede tapado por el menú fijo */
+      html { scroll-behavior: smooth; }
+      .lectura-item { scroll-margin-top: 100px; }
+      .lectura-item:target { box-shadow: 0 0 0 2px var(--pole-a, #4f8cff); }
     </style>
 
 
@@ -140,6 +164,7 @@
             <li class="menu-active"><a href="./resumenes.html">Programa y Resúmenes</a></li>
             <li><a href="./expositores.html">Expositores</a></li>
             <li><a href="./historia.html">Historia</a></li>
+            <li><a href="./afiche.html">Afiche</a></li>
             <!-- <li><a href="#contact">Contact</a></li>-->
             <!-- <li class="buy-tickets"><a href="https://forms.gle/Z9Aknqj3psbgpDZV6">Inscripci&oacute;n</a></li>-->
           </ul>
@@ -167,10 +192,11 @@
 <div class="col-lg-9 day-panel" id="day-1">
 <h3 class="day-panel-title">Lunes 23 de Noviembre</h3>
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:00 -- 14:45 </time></div>
+<div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
 <div class="col-md-10">
 <h4>Acto de inauguraci&oacute;n e Historia</h4>
+<p>Jimmy Santamaria</p>
 </div>
 </div>
 
@@ -178,8 +204,8 @@
 <div class="col-md-2"><time>14:45 -- 15:45</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 1</p>
+<h4><a href="#lectura-1">Parte 1 Introducción</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 
@@ -194,20 +220,20 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:15 -- 17:00</time></div>
+<div class="col-md-2"><time>16:15 -- 16:45</time></div>
 
 <div class="col-md-10">
-<h4>Expostior Local</h4>
-<p></p>
+<h4><a href="#resumen-avalos">Actores, relaciones y escenarios: herramientas para el análisis de los fenómenos políticos</a></h4>
+<p>Luciana Avalos Ortega</p>
 </div>
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+<div class="col-md-2"><time>16:45 -- 17:15</time></div>
 
 <div class="col-md-10">
-<h4>Expositor Local</h4>
-<p></p>
+<h4></h4>
+<p>Maryline Maric</p>
 </div>
 </div>
 </div>
@@ -219,9 +245,8 @@
 <div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local 1</h4>
-
-<p></p>
+<h4><a href="#resumen-sandoval">Transferencia de información potenciada por pares de fuerzas activos en un modelo de bandadas que giran</a></h4>
+<p>Mario Sandoval</p>
 </div>
 </div>
 
@@ -229,9 +254,8 @@
 <div class="col-md-2"><time>14:45 -- 15:30</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local 2</h4>
-
-<p></p>
+<h4></h4>
+<p>Veronica Subieta</p>
 </div>
 </div>
 
@@ -244,21 +268,20 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 17:00</time></div>
+<div class="col-md-2"><time>16:00 -- 16:30</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 2</p>
+<h4></h4>
+<p>Marco Perez</p>
 </div>
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+<div class="col-md-2"><time>16:30 -- 17:30</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local</h4>
-
-<p></p>
+<h4><a href="#lectura-2">Parte 2 Modelos de Opinión Discreta</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 </div>
@@ -267,24 +290,14 @@
 <div class="col-lg-9 day-panel" id="day-3">
 <h3 class="day-panel-title">Miércoles 25 de Noviembre</h3>
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:00 -- 14:45</time></div>
+<div class="col-md-2"><time>14:00 -- 15:15</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local 1</h4>
-
+<h4>Conversatorio</h4>
 <p></p>
 </div>
 </div>
 
-<div class="row schedule-item">
-<div class="col-md-2"><time>14:45 -- 15:15</time></div>
-
-<div class="col-md-10">
-<h4>Expositor local 2</h4>
-
-<p></p>
-</div>
-</div>
 
 <div class="row schedule-item">
 <div class="col-md-2"><time>15:15 -- 15:45</time></div>
@@ -298,8 +311,8 @@
 <div class="col-md-2"><time>15:45 -- 16:45</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 3</p>
+<h4></h4>
+<p>Leonardo Apaza</p>
 </div>
 </div>
 
@@ -307,8 +320,8 @@
 <div class="col-md-2"><time>16:45 -- 17:15</time></div>
 
 <div class="col-md-10">
-<h4>Expositor</h4>
-<p></p>
+<h4><a href="#lectura-3">Modelos de Opinión Continua</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 </div>
@@ -321,9 +334,8 @@
 <div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
 <div class="col-md-10">
-<h4>Expositor</h4>
-
-<p></p>
+<h4><a href="#resumen-gandica-1">El modelo de Deffuant: un paseo por distintas topologías</a></h4>
+<p>Yérali Gandica</p>
 </div>
 </div>
 
@@ -331,9 +343,8 @@
 <div class="col-md-2"><time>14:45 -- 15:30</time></div>
 
 <div class="col-md-10">
-<h4>Expositor</h4>
-
-<p></p>
+<h4><a href="#resumen-gandica-2">Signos de criticidad en los datos de las manifestaciones: una línea de investigación progresiva</a></h4>
+<p>Yérali Gandica</p>
 </div>
 </div>
 
@@ -348,21 +359,20 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:00 -- 17:00</time></div>
+<div class="col-md-2"><time>16:00 -- 16:30</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 4</p>
+<h4><a href="#resumen-lino">Dinámica de opinión en redes sociales multicapa</a></h4>
+<p>José María Lino</p>
 </div>
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>17:00 -- 17:30</time></div>
+<div class="col-md-2"><time>16:30 -- 17:30</time></div>
 
 <div class="col-md-10">
-<h4>Expositor</h4>
-
-<p></p>
+<h4><a href="#lectura-4">Parte 4 Modelos de Opinión Multidimensional</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 </div>
@@ -372,28 +382,27 @@
 <div class="col-lg-9 day-panel" id="day-5">
 <h3 class="day-panel-title">Viernes 27 de Noviembre</h3>
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:00 -- 14:30</time></div>
+<div class="col-md-2"><time>14:00 -- 14:45</time></div>
 
 <div class="col-md-10">
-<h4>Expositor local 3</h4>
-
-<p></p>
+<h4></h4>
+<p>Marcelo Ramirez</p>
 </div>
 </div>
 
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>14:30 -- 15:15</time></div>
+<div class="col-md-2"><time>14:45 -- 15:30</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 5</p>
+<h4><a href="#lectura-5">Parte 5 Análisis de Datos de Redes Sociales Basado en Redes</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>15:15 -- 15:45</time></div>
+<div class="col-md-2"><time>15:30 -- 16:00</time></div>
 
 <div class="col-md-10">
 <h4>Receso</h4>
@@ -402,17 +411,17 @@
 
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>15:45 -- 16:30</time></div>
+<div class="col-md-2"><time>16:00 -- 16:45</time></div>
 
 <div class="col-md-10">
-<h4>Pablo Balenzuela</h4>
-<p>Parte 5</p>
+<h4><a href="#lectura-5">Parte 5 Análisis de Datos de Redes Sociales Basado en Redes</a></h4>
+<p>Pablo Balenzuela</p>
 </div>
 </div>
 
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:30 -- 17:00</time></div>
+<div class="col-md-2"><time>16:45 -- 17:15</time></div>
 
 <div class="col-md-10">
 <h4>Acto de Clausura</h4>
@@ -443,8 +452,8 @@
     </div>
     
     <footer class="blockquote-footer text-left mb-3">
-      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 16px; margin: 6px 0 0 0;">
-        Pablo Balenzuela
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#balenzuela" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Pablo Balenzuela</a>
       </h4>
     </footer>
     
@@ -453,83 +462,83 @@
     <div class="lecturas-list mt-4">
       
       <!-- Clase 1 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+      <div id="lectura-1" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 4px;">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
             Lectura 1 &bull;
           </span>
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Introducción
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Física y Emergencia. Elementos definitorios y metodologías de modelado. El problema de la ovación de pie (<em>Standing Ovation Problem</em>). Herramientas de modelado: Modelos Basados en Agentes (ABM), Redes y Ecuaciones Maestras. El modelo de Granovetter y sus aplicaciones.
         </p>
       </div>
 
       <!-- Clase 2 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-b); border-radius: 8px;">
+      <div id="lectura-2" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-b); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <span class="badge mr-2 mb-1" style="background: var(--pole-b); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 4px;">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-b); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
             Lectura 2 &bull;
           </span>
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Modelos de Opinión Discreta
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Introducción a los modelos de opinión, teorías sociológicas y sus mecanismos. Diferentes enfoques de análisis. Modelos de opinión discreta: Modelo del Votante (<em>Voter Model</em>), ingredientes fundamentales, ecuaciones maestras y casos prácticos de aplicación.
         </p>
       </div>
 
       <!-- Clase 3 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+      <div id="lectura-3" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 4px;">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
             Lectura 3 &bull;
           </span>
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Modelos de Opinión Continua
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Estudio de modelos continuos: De Groot, Deffuant, influencia negativa y el modelo de Mäs & Flache. Análisis de modelos PAT y sus aplicaciones en dinámicas de opinión.
         </p>
       </div>
 
       <!-- Clase 4 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-b); border-radius: 8px;">
+      <div id="lectura-4" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-b); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <span class="badge mr-2 mb-1" style="background: var(--pole-b); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 4px;">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-b); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
             Lectura 4 &bull;
           </span>
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Modelos de Opinión Multidimensional
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Introducción a modelos multidimensionales. El modelo cultural de Axelrod y sus aproximaciones teóricas. El modelo de Baumann: correlaciones, estados ideológicos y aplicaciones.
         </p>
       </div>
 
       <!-- Clase 5 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+      <div id="lectura-5" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 4px;">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
             Lectura 5 &bull;
           </span>
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Análisis de Datos de Redes Sociales Basado en Redes
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           El análisis de datos de redes sociales como sistemas en red ofrece un marco poderoso para estudiar el comportamiento colectivo y la difusión de información a gran escala. Se presentan enfoques basados en redes enfatizando cómo las interacciones entre usuarios, medios y contenidos generan patrones emergentes. Los datos de Twitter, Facebook y YouTube se procesan para reconstruir estructuras de interacción y patrones de consumo. Se abordan métodos para estudiar la polarización, la fragmentación de flujos de información y la formación de comunidades, concluyendo con casos empíricos en contextos electorales.
         </p>
       </div>
 
       <footer class="blockquote-footer text-left mb-3">
-      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 16px; margin: 6px 0 0 0;">
-        José María Lino
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#lino" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">José María Lino</a>
       </h4>
     </footer>
     
@@ -538,20 +547,20 @@
     <div class="lecturas-list mt-4">
       
       <!-- Clase 1 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+      <div id="resumen-lino" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Dinámica de opinión en redes sociales multicapa
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Se exploró la dinámica de opinión en redes multicapa utilizando un modelo de evolución discreta. Se combinaron tres topologías de red diferentes (aleatoria, de mundo pequeño y sin escala) para estudiar tres escenarios: dos que se aproximan a sistemas sociales reales y el otro que representa un caso idealizado. Se observaron diversos comportamientos en la evolución del estado medio de opinión ⟨S⟩ hasta estabilizarse en la red. Se observó que la estabilización se produjo en la mayoría de los casos después de más de 100 pasos. A través de la desviación estándar para cada configuración se evidenció el logro de consenso y se encontró que algunas configuraciones requieren más de 600 pasos para alcanzar este estado. Finalmente, se analizó el impacto de los individuos intransigentes,mostrando que la presencia de al menos uno de estos individuos en cada capa da como resultado una mayor dispersión de opiniones en la red.
         </p>
       </div>
 
       <footer class="blockquote-footer text-left mb-3">
-      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 16px; margin: 6px 0 0 0;">
-        Mario Sandoval Espinoza
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#sandoval" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Mario Sandoval Espinoza</a>
       </h4>
     </footer>
     
@@ -560,17 +569,95 @@
     <div class="lecturas-list mt-4">
       
       <!-- Clase 1 -->
-      <div class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+      <div id="resumen-sandoval" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
         <div class="d-flex align-items-center mb-2 flex-wrap">
-          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 18px; line-height: 1.3;">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
             Transferencia de información potenciada por pares de fuerzas activos en un modelo de bandadas que giran
           </h5>
         </div>
-        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 15px; line-height: 1.6; text-align: left; font-weight: 400;">
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
           Los trabajos fundamentales sobre colectivos de partículas autopropulsadas comenzaron proponiendo un modelo difusivo (sobreamortiguado) para la transferencia de información que tiene lugar en ellos [1]. Posteriormente, la introducción de la inercia de autorrotación dio lugar a un modelo subamortiguado, capaz de describir con mayor precisión el flujo de información durante un giro real de una bandada [2]. Dicho modelo fue perfeccionado recientemente mediante la incorporación de torques no lineales, lo que permitió un mejor ajuste con los resultados experimentales [3]. El presente trabajo amplía este último enfoque añadiendo torques activos, al tiempo que conserva elementos clave como la inercia de autorrotación y la no linealidad. La propuesta de incluir torques activos internos se fundamenta en la biología: las aves pueden inyectar energía rotacional (presumiblemente mediante actividad muscular) al inclinar su cuerpo durante un giro, lo que distingue a estos torques activos de los torques aerodinámicos pasivos. Se observa que, si una partícula activa inicia un giro con una velocidad angular finita, los torques activos añadidos aumentan —de manera unidireccional— la velocidad y la eficiencia de la transferencia de información en el colectivo durante el giro, dotándolo además de un carácter no recíproco. Asimismo, se analiza una descripción en el límite continuo, a partir de la cual se deriva la correspondiente relación de dispersión.
         </p>
       </div>
 
+    <footer class="blockquote-footer text-left mb-3">
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#avalos" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Luciana Avalos Ortega</a>
+      </h4>
+    </footer>
+    
+    <hr class="my-4 new1" />
+
+    <div class="lecturas-list mt-4">
+      
+      <!-- Clase 1 -->
+      <div id="resumen-avalos" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+        <div class="d-flex align-items-center mb-2 flex-wrap">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
+            Actores, relaciones y escenarios: herramientas para el análisis de los fenómenos políticos
+          </h5>
+        </div>
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
+          La investigación titulada Actores clave: liderazgo en las elecciones a la Alcaldía del municipio de La Paz analiza las características de los principales actores políticos que participan en el escenario electoral municipal, considerando sus trayectorias, formas de liderazgo, reconocimiento público, articulación social, capacidad discursiva y proyección electoral. El estudio toma como referencia el contexto político de la ciudad de La Paz y las dinámicas de competencia entre las candidaturas a la Alcaldía, identificando los elementos que intervienen en la configuración del escenario político local.
+          
+          Para desarrollar el análisis, se establecieron cinco variables de estudio: trayectoria política y experiencia pública, reconocimiento público, articulación social y redes de apoyo, viabilidad electoral y capacidad discursiva y narrativa política. A partir de estas variables, se elaboró una matriz comparativa que permitió organizar las características de los actores identificados y reconocer diferentes tipos de liderazgo político, entre ellos el técnico-desarrollista, comunicacional, empresarial-gerencial, territorial-municipal e ideológico-social.
+          
+          Asimismo, la investigación incorpora un análisis de las relaciones entre los actores políticos, las fuerzas de gobierno y oposición, y los posibles escenarios de competencia electoral. Se examinan aspectos como la fragmentación del voto, la configuración de alianzas, la complementariedad entre candidaturas y las condiciones que podrían favorecer escenarios de estabilidad, conflictividad o construcción de consensos.
+          
+          En este sentido, el estudio permite aproximarse al escenario electoral municipal como un espacio dinámico de interacción entre múltiples actores, cuyos recursos, estrategias y relaciones inciden en la configuración de la competencia política y la gobernabilidad local.
+        </p>
+      </div>
+
+
+      <footer class="blockquote-footer text-left mb-3">
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#gandica" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Yérali Gandica</a>
+      </h4>
+    </footer>
+    
+    <hr class="my-4 new1" />
+
+    <div class="lecturas-list mt-4">
+      
+      <!-- Clase 1 -->
+      <div id="resumen-gandica-1" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+        <div class="d-flex align-items-center mb-2 flex-wrap">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-a); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
+            Parte 1 &bull;
+          </span>
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
+            El modelo de Deffuant: un paseo por distintas topologías
+          </h5>
+        </div>
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
+          Los modelos basados en agentes (ABM, por sus siglas en inglés) representan un sistema social como un conjunto de individuos autónomos que interactúan según reglas locales sencillas. Su interés reside en que permiten estudiar cómo emergen patrones colectivos, como el consenso, la fragmentación o la polarización, a partir de interacciones individuales, sin imponerlos de antemano. En dinámica de opiniones, estos modelos han sido una herramienta central para entender bajo qué condiciones una población converge o se divide.
+
+          Entre ellos, el modelo de confianza acotada de Deffuant y colaboradores (2000) es uno de los más estudiados para abordar la polarización. Su idea central es sencilla: los individuos solo se dejan influir por quienes piensan de forma no demasiado distinta. Este mecanismo, inspirado en la homofilia, basta para que una población, en lugar de alcanzar un consenso, se divida en varios grupos de opinión estables.
+
+          En esta charla se recorre la evolución del modelo. Partimos de su formulación original, en la que cualquier par de individuos puede interactuar. A continuación, se revisa su extensión a distintos tipos de redes, que muestran cómo la estructura de las conexiones influye en la formación de consensos y en la supervivencia de opiniones minoritarias. Después, se analiza el efecto contraintuitivo que aparece cuando existe heterogeneidad en el número de conexiones, como ocurre en las redes libres de escala, y que se acentúa aún más cuando estas redes se organizan en comunidades. Finalmente, se aborda el caso de redes que crecen en el tiempo, en las que conexiones y opiniones evolucionan conjuntamente, y se presentan avances recientes en redes crecientes libres de escala, donde la aparición de individuos que hacen de puente entre grupos puede desencadenar cascadas que alteran el equilibrio entre mayorías y minorías.
+        </p>
+      </div>
+
+      <!-- Clase 2 -->
+      <div id="resumen-gandica-2" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-b); border-radius: 8px;">
+        <div class="d-flex align-items-center mb-2 flex-wrap">
+          <span class="badge mr-2 mb-1" style="background: var(--pole-b); color: #0a0e1a; font-family: var(--font-mono); font-weight: 700; font-size: 14px; padding: 6px 10px; border-radius: 4px;">
+            Parte 2 &bull;
+          </span>
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
+            Signos de criticidad en los datos de las manifestaciones: una línea de investigación progresiva
+          </h5>
+        </div>
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
+          Una cuestión central en el estudio de los sistemas complejos es si el comportamiento colectivo a gran escala surge de las interacciones locales a través de mecanismos análogos a los observados cerca de los puntos críticos en los sistemas físicos. Los movimientos sociales ofrecen un contexto empírico muy interesante: durante los actos de movilización masiva, miles de personas se coordinan de forma rápida y espontánea, dando lugar a una organización colectiva que abarca todo el sistema. En esta charla, presento una línea de investigación progresiva que rastrea indicios de criticidad en los datos de Twitter y Bluesky recopilados durante manifestaciones. En las redes de coocurrencia de hashtags, a lo largo de múltiples eventos de movilización, identificamos en primer lugar una transición estructural robusta en el pico de actividad: un cambio de una organización modular: en la que las distintas comunidades temáticas permanecen segregadas hacia una estructura jerárquica y anidada, en la que los hashtags utilizados por un menor número de usuarios quedan sistemáticamente subsumidos dentro de los patrones de actividad de aquellos utilizados por un mayor número.
+
+          A continuación, aplicamos la renormalización por umbral de grado (DTR), un procedimiento de agrupamiento en escalas más amplias que elimina de forma iterativa los nodos de bajo grado y reconstruye la red a escalas cada vez más amplias, en analogía directa con los enfoques del grupo de renormalización en física estadística. Dentro de la Ventana Temporal Crítica (CTW), que coincide con el pico de movilización, tanto las distribuciones acumulativas complementarias de grado como los espectros de agrupamiento colapsan al reescalar por el grado medio en cada nivel, revelando una organización autosimilar e invariante a escala; este comportamiento desaparece fuera de la CTW.
+
+          Por último, ampliamos el análisis a las redes de reposts, en las que los enlaces codifican interacciones directas entre usuarios en lugar de la coocurrencia de hashtags. La transición de modular a anidada también se observa en estas redes, lo que sugiere una propiedad fundamental de la atención colectiva. Durante el mismo periodo, el componente gigante crece notablemente más rápido, y la entropía de los tamaños de los componentes disminuye, mientras que la de los tamaños de las comunidades aumenta, lo que apunta a una consolidación global que coexiste con una diversidad de comunidades dentro del componente gigante. En conjunto, estos resultados sugieren que la organización estructural autosimilar es una condición fundamental para una comunicación colectiva eficiente durante las manifestaciones, y abren la puerta a un tratamiento de la criticidad social desde la perspectiva de la física estadística.
+        </p>
+      </div>
+      
+      
     </div>
   </div>
 </section>
@@ -605,7 +692,7 @@
               <ul style="text-align: justify">
                 <li><a>Sistemas Complejos Bolivia</a></li>
                 <li>
-                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jimmy Santamaria, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez, Leonardo Loza, Marco P&eacute;rez, Mateo Camacho, Pedro Coronel, Ver&oacute;nica Subieta y Zui Oporto.
+                  Aurelio Suxo, Boris L&oacute;pez, Fernando Villegas, Jimmy Santamaria, Jos&eacute; M&aacute;ria Lino, Marcelo Ramirez, Leonardo Apaza, Marco P&eacute;rez, Mateo Camacho, Pedro Coronel, Sissi Gryzbowski, Ver&oacute;nica Subieta y Zui Oporto.
                 </li>
               </ul>
             </div>
@@ -678,5 +765,6 @@
     <script src="js/main.js"></script>
       <script src="nav-toggle.js"></script>
     <script src="js/timezone.js"></script>
+    <script src="js/duracion.js"></script>
   </body>
 </html>

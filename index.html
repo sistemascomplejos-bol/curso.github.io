@@ -13,16 +13,28 @@
 	<link href="lib/venobox/venobox.css" rel="stylesheet" />
 	<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" /><!-- Main Stylesheet File -->
 	<link href="css/style.css?v=2" rel="stylesheet" />
-	<!-- Panal fluido (celulares): va aquí, en el propio HTML, para que no dependa de la caché de style.css -->
+	<!-- Panal fluido: la fila más ancha tiene 5 hexágonos, así que el tamaño se calcula para que 5 siempre quepan -->
 	<style>
-	  :root { --hex-w: min(300px, calc((100vw - 40px) / 4.2)) !important; }
-	  .hexagon .hex-name { font-size: clamp(6px, calc(var(--hex-w) * 0.04), 12px) !important; }
+	  :root { --hex-w: min(300px, calc((100vw - 40px) / 5.3)) !important; }
+	  .hexagon .hex-name { font-size: clamp(6px, calc(var(--hex-w) * 0.045), 12px) !important; }
 	  @media (max-width: 991px) {
 	    .hexagon img { max-height: 38% !important; }
 	    .hexagon .hex-name { max-width: 76% !important; margin-top: 2px !important; }
-	    #supporters, #supporters .container { overflow: hidden !important; max-width: 100% !important; width: 100% !important; }
+	    #supporters, #supporters .container { max-width: 100% !important; width: 100% !important; overflow-x: hidden !important; }
 	    #supporters .container { padding-left: 15px !important; padding-right: 15px !important; box-sizing: border-box !important; }
 	  }
+	  /* Celular en vertical: hexágonos muy chicos, se ocultan los nombres (siguen en el title y el alt) y el logo crece */
+	  @media (max-width: 575px) {
+	    .hexagon .hex-name { display: none !important; }
+	    .hexagon img { max-height: 55% !important; }
+	  }
+	  /* Sección "Sobre el curso" */
+	  #about-course { background: #0b0e1f; padding: 90px 0 80px; color: #e6e8f2; }
+	  #about-course .about-course-lead { font-family: 'Fraunces', serif; font-style: italic; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; color: #fff; text-align: center; max-width: 860px; margin: 0 auto 40px; }
+	  #about-course .about-course-body { max-width: 820px; margin: 0 auto; }
+	  #about-course .about-course-body p { font-size: 17px; line-height: 1.8; color: #ffffff !important; text-align: justify; margin-bottom: 22px; }
+	  #about-course .about-course-closing { margin-top: 36px; padding-left: 20px; border-left: 3px solid #1fb6d6; font-family: 'Fraunces', serif; font-style: italic; font-size: 19px; line-height: 1.6; color: #ffffff !important; text-align: left !important; }
+	  @media (max-width: 575px) { #about-course { padding: 60px 0 50px; } #about-course .about-course-body p { font-size: 16px; text-align: left; } }
 	</style>
 	<!-- Estilos consolidados en css/style.css -->
 </head>
@@ -67,6 +79,25 @@
 </section>
 
 <main id="main">
+
+<!--==========================
+  Sobre el curso
+===========================-->
+
+<section id="about-course" class="wow fadeInUp">
+  <div class="container">
+    <div class="section-header">
+      <h2>Sobre el curso</h2>
+    </div>
+
+    <p class="about-course-lead">¿Cómo surgen las opiniones colectivas? ¿Por qué las sociedades alcanzan consensos, se fragmentan o se polarizan? ¿Qué papel desempeñan las redes de interacción, la influencia social y la difusión de información en estos procesos?</p>
+
+    <div class="about-course-body">
+      <p>El XXIV Curso Boliviano de Sistemas Complejos propone explorar estas preguntas desde la física, las matemáticas y la ciencia de sistemas complejos, abordando la sociedad como un entramado dinámico de individuos cuyas interacciones dan lugar a fenómenos colectivos emergentes.</p>
+      <p>A través de modelos basados en agentes, teoría de redes, dinámica de opiniones y análisis de datos de redes sociales, el curso examina los mecanismos que conducen al consenso, la fragmentación, la polarización y la formación de comunidades. Asimismo, conecta los fundamentos teóricos con investigaciones y aplicaciones empíricas en escenarios sociales, políticos, electorales y de movilización colectiva.</p>
+    </div>
+  </div>
+</section>
 
 <!--==========================
   Sponsors Section

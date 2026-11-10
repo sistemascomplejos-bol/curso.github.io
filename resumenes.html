@@ -132,6 +132,31 @@
       html { scroll-behavior: smooth; }
       .lectura-item { scroll-margin-top: 100px; }
       .lectura-item:target { box-shadow: 0 0 0 2px var(--pole-a, #4f8cff); }
+
+      /* ===== Horario alineado por hora: los 5 días comparten las mismas filas =====
+         js (más abajo) calcula la fila de inicio/fin de cada bloque a partir de su
+         hora y la guarda en --r1 / --r2; --rows es el total de filas de tiempo. */
+      #schedule .day-panel .schedule-item { min-height: calc(var(--mins, 30) * 3px); }
+
+      @media (min-width: 1200px) {
+        @supports (grid-template-rows: subgrid) {
+          #schedule .tab-content.time-grid {
+            grid-template-rows: auto repeat(var(--rows), minmax(calc(var(--slot) * 4px), auto));
+            row-gap: 0;
+            column-gap: 20px;
+          }
+          #schedule .tab-content.time-grid .day-panel {
+            display: grid;
+            grid-row: 1 / -1;
+            grid-template-rows: subgrid;
+          }
+          #schedule .tab-content.time-grid .day-panel-title { grid-row: 1; }
+          #schedule .tab-content.time-grid .day-panel .schedule-item {
+            grid-row: var(--r1) / var(--r2);
+            min-height: 0;
+          }
+        }
+      }
     </style>
 
 
@@ -232,8 +257,8 @@
 <div class="col-md-2"><time>16:45 -- 17:15</time></div>
 
 <div class="col-md-10">
-<h4></h4>
-<p>Maryline Maric</p>
+<h4><a href="#resumen-maric">La Ley 348 como sistema complejo: mapeo de representaciones sociales a través de redes conceptuales</a></h4>
+<p>Maria Lily Maric</p>
 </div>
 </div>
 </div>
@@ -308,7 +333,7 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>15:45 -- 16:45</time></div>
+<div class="col-md-2"><time>15:45 -- 16:15</time></div>
 
 <div class="col-md-10">
 <h4></h4>
@@ -317,7 +342,7 @@
 </div>
 
 <div class="row schedule-item">
-<div class="col-md-2"><time>16:45 -- 17:15</time></div>
+<div class="col-md-2"><time>16:15 -- 17:15</time></div>
 
 <div class="col-md-10">
 <h4><a href="#lectura-3">Modelos de Opinión Continua</a></h4>
@@ -639,6 +664,31 @@
 
       <footer class="blockquote-footer text-left mb-3">
       <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
+        <a href="expositores.html#maric" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Maria Lily Maric</a>
+      </h4>
+    </footer>
+    
+    <hr class="my-4 new1" />
+
+    <div class="lecturas-list mt-4">
+      
+      <!-- Clase 1 -->
+      <div id="resumen-maric" class="lectura-item mb-4 p-3" style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--pole-a); border-radius: 8px;">
+        <div class="d-flex align-items-center mb-2 flex-wrap">
+          <h5 class="mb-1" style="color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.3;">
+            La Ley 348 como sistema complejo: mapeo de representaciones sociales a través de redes conceptuales
+          </h5>
+        </div>
+        <p style="color: var(--ink-muted); margin-bottom: 0; font-size: 18px; line-height: 1.7; text-align: left; font-weight: 400;">
+          Un sistema complejo es un conjunto de elementos interdependientes cuyas interacciones producen comportamientos colectivos que no pueden explicarse estudiando cada parte por separado. Una ley no es solo un texto jurídico: es un sistema complejo donde conviven normas, instituciones, creencias y experiencias que se influyen entre sí de manera constante. En ese sentido, la Ley 348 de Bolivia puede leerse como un sistema complejo adaptativo: una norma que emergió de la interacción de las representaciones sociales de los colectivos de mujeres y que, al aplicarse, activa sistemas de retroalimentación y tensiones entre las posturas de otros actores que tienden a polarizarse.
+          
+          Los sistemas complejos pueden ser abordados desde la psicología social con la ayuda de  herramientas metodológicas que conserven esas relaciones en lugar de aplanarlas en tablas o análisis lineales. A través del programa Obsidian, mapeamos la complejidad de estos, a partir de las representaciones sociales obtenidas en 85 entrevistas a abogados y abogadas. Los resultados muestran cómo estos factores se configuran en sistemas de influencia mutua como:  la barrera económica, el costo de la justicia, la discriminación hacia la mujer, la duda sobre su comportamiento, los SLIM saturados y deficientes, la violencia de género presente en el propio proceso, así como el impacto de la zona geográfica y la brecha rural-urbana.
+        </p>
+      </div>
+
+
+      <footer class="blockquote-footer text-left mb-3">
+      <h4 class="autor" style="color: var(--pole-a); font-family: var(--font-mono); font-weight: 600; font-size: 18px; margin: 6px 0 0 0;">
         <a href="expositores.html#gandica" style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">Yérali Gandica</a>
       </h4>
     </footer>
@@ -792,7 +842,41 @@
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
       <script src="nav-toggle.js"></script>
+    <!-- Horario: posiciona cada bloque según su hora (debe ir ANTES de timezone.js,
+         que cambia el texto de las horas al elegir otra zona horaria) -->
+    <script>
+      (function () {
+        var grid = document.querySelector('#schedule .tab-content');
+        if (!grid) return;
+        var items = Array.prototype.slice.call(grid.querySelectorAll('.day-panel .schedule-item'));
+        var re = /(\d{1,2}):(\d{2})\D+(\d{1,2}):(\d{2})/;
+        var data = [];
+        items.forEach(function (it) {
+          var t = it.querySelector('time');
+          var m = t && re.exec(t.textContent);
+          if (!m) return;
+          var a = +m[1] * 60 + +m[2], b = +m[3] * 60 + +m[4];
+          if (b <= a) return;
+          data.push({ el: it, a: a, b: b });
+        });
+        if (!data.length) return;
+        var min = Math.min.apply(null, data.map(function (d) { return d.a; }));
+        var max = Math.max.apply(null, data.map(function (d) { return d.b; }));
+        var gcd = function (x, y) { return y ? gcd(y, x % y) : x; };
+        var slot = 0;
+        data.forEach(function (d) { slot = gcd(slot, gcd(d.a - min, d.b - min)); });
+        slot = Math.max(slot, 5);
+        data.forEach(function (d) {
+          d.el.style.setProperty('--r1', 2 + (d.a - min) / slot);
+          d.el.style.setProperty('--r2', 2 + (d.b - min) / slot);
+          d.el.style.setProperty('--mins', d.b - d.a);
+        });
+        grid.style.setProperty('--rows', (max - min) / slot);
+        grid.style.setProperty('--slot', slot);
+        grid.classList.add('time-grid');
+      })();
+    </script>
     <script src="js/timezone.js"></script>
-    <script src="js/duracion.js"></script>
+    <!-- js/duracion.js ya no hace falta: la altura ahora la resuelve la cuadrícula (CSS + script de arriba) -->
   </body>
 </html>
